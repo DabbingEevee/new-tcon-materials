@@ -13,12 +13,13 @@ import com.existingeevee.moretcon.traits.modifiers.Betweenified;
 import com.existingeevee.moretcon.traits.modifiers.Crushing;
 import com.existingeevee.moretcon.traits.modifiers.Debug;
 import com.existingeevee.moretcon.traits.modifiers.Gem;
-import com.existingeevee.moretcon.traits.modifiers.MatterReconstructionGel;
 import com.existingeevee.moretcon.traits.modifiers.ModExtraTrait2;
 import com.existingeevee.moretcon.traits.modifiers.Shocked;
 import com.existingeevee.moretcon.traits.modifiers.Tarred;
 import com.existingeevee.moretcon.traits.modifiers.Valonite;
 import com.existingeevee.moretcon.traits.modifiers.internal.ModExtraTraitDisplay2;
+import com.existingeevee.moretcon.traits.modifiers.misc.MatterReconstructionGel;
+import com.existingeevee.moretcon.traits.modifiers.misc.RefilOverslime;
 import com.existingeevee.moretcon.traits.traits.Aetheric;
 import com.existingeevee.moretcon.traits.traits.Afterimage;
 import com.existingeevee.moretcon.traits.traits.AntiGravity;
@@ -92,6 +93,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
@@ -100,8 +102,10 @@ import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.traits.ITrait;
+import slimeknights.tconstruct.shared.TinkerCommons;
 import thebetweenlands.common.capability.circlegem.CircleGemType;
 import thebetweenlands.common.registries.ItemRegistry;
+import xyz.phanta.tconevo.item.ItemMaterial;
 
 public class ModTraits {
 	public static BloodGodsBlessing bloodGodsBlessing = new BloodGodsBlessing();
@@ -174,8 +178,6 @@ public class ModTraits {
 
 	public static PolyshotProj polyshotProj = new PolyshotProj();
 	
-	public static MatterReconstructionGel repair;
-
 	public static AntiGravity antigravity;
 
 	public static Gem modRedGem;
@@ -199,6 +201,9 @@ public class ModTraits {
 	public static Burning burning; //TODO move away from bl
 	public static Inertia inertia;
 
+	public static MatterReconstructionGel repair;
+
+	
 	static {
 		if (CompatManager.thebetweenlands) {
 			shockwaving = new Shockwaving();
@@ -249,6 +254,22 @@ public class ModTraits {
 	}
 
 	public static void postInit() {
+		if (CompatManager.tic3backport) {
+			if (TinkerCommons.matSlimeCrystalGreen != null) {
+				new RefilOverslime("green", 50).addItem(TinkerCommons.matSlimeCrystalGreen, 1, 1);
+			}
+			if (TinkerCommons.matSlimeCrystalBlue != null) {
+				new RefilOverslime("blue", 75).addItem(TinkerCommons.matSlimeCrystalBlue, 1, 1);
+			}
+			if (TinkerCommons.matSlimeCrystalMagma != null) {
+				new RefilOverslime("magma", 150).addItem(TinkerCommons.matSlimeCrystalMagma, 1, 1);
+			}
+			
+			if (Loader.isModLoaded("tconevo")) {
+				new RefilOverslime("pink", 200).addItem(ItemMaterial.Type.PINK_SLIME_CRYSTAL.newStack(1), 1, 1);
+			}
+		}
+		
 		registerExtraTraitModifiers();
 		if (MoreTCon.proxy.isClient()) {
 			registerModifier(new ModExtraTraitDisplay2());

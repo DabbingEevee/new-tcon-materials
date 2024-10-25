@@ -1,9 +1,9 @@
-package com.existingeevee.moretcon.traits.modifiers;
+package com.existingeevee.moretcon.traits.modifiers.misc;
 
 import java.util.ArrayList;
 
-import com.existingeevee.moretcon.inits.ModItems;
 import com.existingeevee.moretcon.other.utils.MiscUtils;
+import com.existingeevee.moretcon.traits.ModTraits;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
@@ -18,14 +18,17 @@ import slimeknights.tconstruct.library.events.TinkerCraftingEvent.ToolModifyEven
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.ToolHelper;
 
-public class MatterReconstructionGel extends Modifier {
+public class RefilOverslime extends Modifier {
 
-	public MatterReconstructionGel() {
-		super(MiscUtils.createNonConflictiveName("MatterReconstructionGel".toLowerCase()));
-		this.addItem(ModItems.matterReconstructionGel);
+	final int amountRestore;
+	
+	public static final String KEY = "ToRestore";
+	
+	public RefilOverslime(String id, int restore) {
+		super(MiscUtils.createNonConflictiveName("restore_overslime_" + id));
 		MinecraftForge.EVENT_BUS.register(this);
+		this.amountRestore = restore;
 	}
 
 	@Override
@@ -35,22 +38,23 @@ public class MatterReconstructionGel extends Modifier {
 
 	@Override
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
-		rootCompound.setInteger("ToRepair", rootCompound.getInteger("ToRepair") + 1);
+		rootCompound.setInteger(KEY, rootCompound.getInteger(KEY) + 1);
 	}
 
 	@Override
 	public boolean canApplyCustom(ItemStack stack) throws TinkerGuiException {
-		int toRepair = TagUtil.getTagSafe(stack).getInteger("ToRepair") + 1;
-		int maxDamage = stack.getMaxDamage();
-		float fixAmountOne = Math.max(256, maxDamage / 10f);
-		float fixAmount = toRepair * fixAmountOne;
+		if (!ModTraits.overslime.isToolWithTrait(stack) || ModTraits.overslime.getNumberMax(stack) <= ModTraits.overslime.getNumber(stack)) {
+			return false;
+		}
+		
+		int toRepair = TagUtil.getTagSafe(stack).getInteger(KEY) + 1;
+		int fixAmount = toRepair * amountRestore;
 
-		int damage = ToolHelper.isBroken(stack) ? maxDamage : stack.getItemDamage();
-		boolean isDamaged = damage > 0;
+		int damage = ModTraits.overslime.getNumberMax(stack) - ModTraits.overslime.getNumber(stack);
 
-		boolean shouldAllow = fixAmount - damage <= fixAmountOne;
+		boolean shouldAllow = fixAmount - damage <= amountRestore;
 
-		if (!shouldAllow || !isDamaged) {
+		if (!shouldAllow) {
 			return false;
 		}
 		return true;
@@ -59,13 +63,12 @@ public class MatterReconstructionGel extends Modifier {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void handleToolModifyEvent(ToolModifyEvent event) {
 		NBTTagCompound comp = TagUtil.getTagSafe(event.getItemStack());
-		int toRepair = comp.getInteger("ToRepair") - 1; // For some reason tinkers does it an extra time aggghhh
+		int toRestore = comp.getInteger(KEY) - 1; // For some reason tinkers does it an extra time aggghhh
 
-		if (toRepair > 0) {
-
-			int maxDamage = event.getItemStack().getMaxDamage();
-			int fixAmount = Math.round(toRepair * Math.max(256, maxDamage / 10f));
-			ToolHelper.repairTool(event.getItemStack(), fixAmount);
+		if (toRestore > 0) {
+			
+			ModTraits.overslime.addNumber(event.getItemStack(), toRestore * amountRestore);
+			
 			NBTTagList list = comp.getCompoundTag("TinkerData").getTagList("Modifiers", NBT.TAG_STRING);
 			ArrayList<Integer> toRemove = new ArrayList<>();
 			int i = 0;
@@ -76,7 +79,7 @@ public class MatterReconstructionGel extends Modifier {
 				i++;
 			}
 			toRemove.forEach(list::removeTag);
-			comp.removeTag("ToRepair");
+			comp.removeTag(KEY);
 		}
 	}
 }

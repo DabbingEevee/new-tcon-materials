@@ -22,13 +22,15 @@ public class Rootplicating extends AbstractTrait {
 		super(MiscUtils.createNonConflictiveName("rootplicating"), 0);
 	}
 
+	static final PropertyBool PROPERTY = PropertyBool.create(Aether.doubleDropNotifier());
+	
 	@Override
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase entity, boolean wasEffective) {
 		if(entity instanceof EntityPlayer && (tool.getDestroySpeed(world.getBlockState(pos)) > 1.0f || ForgeHooks.isToolEffective(world, pos, tool))) {
-			if(!state.getProperties().containsKey(PropertyBool.create(Aether.doubleDropNotifier()))) {
+			if(!state.getProperties().containsKey(PROPERTY)) {
 				return;
 			}
-			if(state.getValue(PropertyBool.create(Aether.doubleDropNotifier())) && !world.isRemote) {
+			if(state.getValue(PROPERTY) && !world.isRemote) {
 				NonNullList<ItemStack> blockDrop = NonNullList.create();
 				state.getBlock().getDrops(blockDrop, world, pos, state, 0);
 				blockDrop.forEach(stack -> world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack.copy())));

@@ -61,6 +61,7 @@ import com.existingeevee.moretcon.traits.traits.Rotten;
 import com.existingeevee.moretcon.traits.traits.Searing;
 import com.existingeevee.moretcon.traits.traits.SkysBlessing;
 import com.existingeevee.moretcon.traits.traits.Slicing;
+import com.existingeevee.moretcon.traits.traits.Slimesharp;
 import com.existingeevee.moretcon.traits.traits.Soulforged;
 import com.existingeevee.moretcon.traits.traits.Supercritical;
 import com.existingeevee.moretcon.traits.traits.Treetap;
@@ -174,10 +175,11 @@ public class ModTraits {
 	public static PlasmaMissiles plasmaMissiles = new PlasmaMissiles();
 	public static Approximate approximate = new Approximate(1);
 	public static Approximate approximate2 = new Approximate(2);
+	public static Slimesharp slimesharp = new Slimesharp();
 	public static Polyshot polyshot = new Polyshot();
 
 	public static PolyshotProj polyshotProj = new PolyshotProj();
-	
+
 	public static AntiGravity antigravity;
 
 	public static Gem modRedGem;
@@ -198,12 +200,11 @@ public class ModTraits {
 	public static Rotten rotten;
 	public static Oxide oxide;
 	public static Wormed wormed;
-	public static Burning burning; //TODO move away from bl
+	public static Burning burning; // TODO move away from bl
 	public static Inertia inertia;
 
 	public static MatterReconstructionGel repair;
 
-	
 	static {
 		if (CompatManager.thebetweenlands) {
 			shockwaving = new Shockwaving();
@@ -232,8 +233,7 @@ public class ModTraits {
 			repair = new MatterReconstructionGel();
 			modCrushing = new Crushing();
 			registerModifier(
-					modCrushing
-					);
+					modCrushing);
 		}
 		if (CompatManager.thebetweenlands) {
 			modRedGem = new Gem(CircleGemType.CRIMSON, ItemRegistry.CRIMSON_MIDDLE_GEM, 0xFF0000);
@@ -264,18 +264,17 @@ public class ModTraits {
 			if (TinkerCommons.matSlimeCrystalMagma != null) {
 				new RefilOverslime("magma", 150).addItem(TinkerCommons.matSlimeCrystalMagma, 1, 1);
 			}
-			
+
 			if (Loader.isModLoaded("tconevo")) {
 				new RefilOverslime("pink", 200).addItem(ItemMaterial.Type.PINK_SLIME_CRYSTAL.newStack(1), 1, 1);
 			}
 		}
-		
+
 		registerExtraTraitModifiers();
 		if (MoreTCon.proxy.isClient()) {
 			registerModifier(new ModExtraTraitDisplay2());
 		}
 	}
-
 
 	private static Map<String, ModExtraTrait2> extraTraitLookup = new HashMap<>();
 	public static List<Modifier> extraTraitMods;
@@ -302,7 +301,8 @@ public class ModTraits {
 		if (toolPart instanceof Item) {
 			Collection<ITrait> traits = partMaterialType.getApplicableTraitsForMaterial(material);
 			if (!traits.isEmpty()) {
-				// we turn it into a set to remove duplicates, reducing the total amount of modifiers created by roughly 25%!
+				// we turn it into a set to remove duplicates, reducing the total amount of
+				// modifiers created by roughly 25%!
 				final Collection<ITrait> traits2 = ImmutableSet.copyOf(traits);
 				String identifier = ModExtraTrait2.generateIdentifier(material, traits2);
 				ModExtraTrait2 mod = extraTraitLookup.computeIfAbsent(identifier, id -> new ModExtraTrait2(material, traits2, identifier));

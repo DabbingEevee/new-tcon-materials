@@ -91,11 +91,11 @@ public class ModMaterials implements MaterialTypes {
 	public static final Material materialNahuatl = new Material(MiscUtils.createNonConflictiveName("nahuatl"), 0x3B2754);
 	public static final Material materialSlimewood = new Material(MiscUtils.createNonConflictiveName("slimewood"), 0x96dd8f);
 	public static final DelagateFluidMaterial materialSearedStone = new DelagateFluidMaterial(MiscUtils.createNonConflictiveName("searedstone"), 0x4f4a47);
+	public static final Material materialSlimesteel = new Material(MiscUtils.createNonConflictiveName("slimesteel"), 0x47efea);
 
 	//TODO
 	// public static final Material materialQueensslime = new Material(Misc.createNonConflictiveName("queensslime"), 0x565808); //Need Custom
 	// public static final Material materialHepatizon = new Material(Misc.createNonConflictiveName("hepatizon"), 0xf1ea3b);
-	// public static final Material materialSlimesteel = new Material(Misc.createNonConflictiveName("slimesteel"), 0x47efea);
 	// public static final Material materialScorchedStone = new Material(Misc.createNonConflictiveName("scorchedstone"), 0x53453c);
 	// public static final Material materialBloodbone = new Material(Misc.createNonConflictiveName("bloodbone"), 0xb80000);
 	// public static final Material materialNecroticBone = new Material(Misc.createNonConflictiveName("necrobone"), 0x343434);
@@ -235,6 +235,14 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialSearedStone, new HandleMaterialStats(0.85f, -25));
 			TinkerRegistry.addMaterialStats(materialSearedStone, new ExtraMaterialStats(-15));
 			TinkerRegistry.addMaterialStats(materialSearedStone, whyWouldYouMakeABowOutOfThis);
+			
+			materialSlimesteel.addCommonItems("Slimesteel");
+			materialSlimesteel.addTrait(ModTraits.slimesharp);
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new HeadMaterialStats(500, 5.0f, 8.0f, 6)); //TODO finalize stats
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new HandleMaterialStats(3.0f, 20));
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new ExtraMaterialStats(20));
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new ArrowShaftMaterialStats(3.0f, 20));
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new BowMaterialStats(0.6f, 1.0f, 3f));
 		}
 
 		if (CompatManager.plustic) {
@@ -1119,6 +1127,7 @@ public class ModMaterials implements MaterialTypes {
 			ModMaterials.registerMaterial(materialNahuatl, null);
 			ModMaterials.registerMaterial(materialSlimewood, null);
 			ModMaterials.registerMaterial(materialSearedStone, null);
+			ModMaterials.registerMaterial(materialSlimesteel, null);
 		}
 
 		if (CompatManager.twilightforest) {

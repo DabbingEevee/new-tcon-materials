@@ -67,6 +67,8 @@ public class ConfigHandler {
 
 	public static boolean inertiaOnlyWorksOnAdvancedTools = false;
 
+	public static boolean invasiveWorldgen = true;
+
 	public static void initConfig(File file) {
 		config = new Configuration(file, ModInfo.VERSION);
 
@@ -86,7 +88,7 @@ public class ConfigHandler {
 		ConfigHandler.shouldAllowAether = config.getBoolean("aether_legacy", category, true, "Set to \"false\" if you don't want to allow Aether compatibility to load.");
 		ConfigHandler.shouldAllowBaubles = config.getBoolean("baubles", category, true, "Set to \"false\" if you don't want to allow Baubles compatibility to load. (FYI disabling this may leave leave some items without recipes)");
 		ConfigHandler.shouldAllowOreDictionary = config.getBoolean("oredict", category, true, "[NYI] Set to \"false\" if you don't want to allow oredict compatibility to load.");
-		ConfigHandler.shouldAllowTiC3ContentBackport = config.getBoolean("tic3backport", category, true, "Set to \"false\" if you don't want to allow backported content from TinkersConstruct 3 to load.");
+		ConfigHandler.shouldAllowTiC3ContentBackport = config.getBoolean("tic3backport", category, true, "Set to \"false\" if you don't want to allow backported content from Tinker's Construct 3 to load.");
 
 		category = "Misc";
 		config.addCustomCategoryComment(category, "Tweak the miscellaneous values/content of the mod");
@@ -94,14 +96,13 @@ public class ConfigHandler {
 		ConfigHandler.enableGauntlet = config.getBoolean("enablegauntlet", category, true, "Set to \"false\" if you want to disable the gauntlet tool.");
 		ConfigHandler.enableRing = config.getBoolean("enablering", category, true, "Set to \"false\" if you want to disable the ring tool.");
 		ConfigHandler.shouldLoadDustForCompatability = config.getBoolean("compatdust", category, true, "Set to \"false\" if you do not want to load dust for other mods.");
-		ConfigHandler.disableOreGen = config.getBoolean("disableoregen", category, false, "Set to \"true\" if you want to remove world generation");
 		ConfigHandler.weakenToolsInBetweenLands = config.getBoolean("weakennonbetweentinkers", category, true, "Set to \"false\" if you do not want to weaken non BetweenTinker tinker items.");
 		ConfigHandler.registerBetweenTinkerTools = config.getBoolean("registerBetweenTinkerTools".toLowerCase(), category, true, "Set to \"false\" if you do not want to  BetweenTinker tinker items to be loaded.");
 		ConfigHandler.middleGemsRequireModifierSlots = config.getBoolean("middleGemsRequireModifierSlots".toLowerCase(), category, true, "Set to \"false\" if you do not want to Betweenlands middle gems to cost modifier slots.");
 		String triRed = config.getString("trichromic_red", category, "minecraft:strength;1", "Set to a potion effect to affect trichromic color effect.");
 		String triGreen = config.getString("trichromic_green", category, "none;0", "Set to a potion effect to affect trichromic color effect, or \"none\" for default effect.");
 		String triBlue = config.getString("trichromic_blue", category, "none;0", "Set to a potion effect to affect trichromic color effect, or \"none\" for default effect.");
-
+		
 		unfracturedBedrockObtainable = config.getBoolean("unfracturedbedrockobtainable", category, unfracturedBedrockObtainable, "Whether or not regular (typically unbreakable) bedrock should be obtainable.");
 		ConfigHandler.inertiaOnlyWorksOnAdvancedTools = config.getBoolean("inertiaOnlyWorksOnAdvancedTools".toLowerCase(), category, false, "Set to \"true\" if you do not want inertia (betweenlands greataxe/greatsword trait) to function on basic tools.");
 
@@ -128,6 +129,10 @@ public class ConfigHandler {
 
 		hyperheatMaximumStack = config.getInt("hyperheatmaximumstack", category, 4, 1, 127, "The maximum stack of Hyper Heat that is allowed");
 
+		category = "Worldgen";
+		ConfigHandler.disableOreGen = config.getBoolean("disableoregen", category, false, "Set to \"true\" if you want to remove world generation");
+		ConfigHandler.invasiveWorldgen  = config.getBoolean("invasiveworldgen", category, true, "Set to \"false\" if you want to disable more invasive worldgen aspects. (IE new biomes ect.)");
+		
 		category = "Durability Issue Fix";
 		config.addCustomCategoryComment(category, "A category dedicated to fixing the strange behavior of tools with durability greater than (2 ^ 15 - 1)");
 

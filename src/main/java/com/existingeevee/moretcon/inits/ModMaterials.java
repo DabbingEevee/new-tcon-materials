@@ -87,6 +87,7 @@ public class ModMaterials implements MaterialTypes {
 	public static final Material materialSanguiseelium = new Material(MiscUtils.createNonConflictiveName("sanguiseelium"), 0x6b1313);
 	public static final Material materialZracohlium = new Material(MiscUtils.createNonConflictiveName("zracohlium"), 0x444c2a);
 	public static final Material materialIoximite = new Material(MiscUtils.createNonConflictiveName("ioximite"), 0x978cea);
+	public static final Material materialMonolite = new Material(MiscUtils.createNonConflictiveName("monolite"), 0x4a74f0);
 
 	public static final Material materialNahuatl = new Material(MiscUtils.createNonConflictiveName("nahuatl"), 0x3B2754);
 	public static final Material materialSlimewood = new Material(MiscUtils.createNonConflictiveName("slimewood"), 0x96dd8f);
@@ -184,7 +185,7 @@ public class ModMaterials implements MaterialTypes {
 			materialNahuatl.addTrait(TinkerTraits.dense, HEAD);
 			materialNahuatl.addTrait(TinkerTraits.ecological);
 			materialNahuatl.addTrait(TinkerTraits.dense);
-			TinkerRegistry.addMaterialStats(materialNahuatl, new HeadMaterialStats(350, 4.5f, 3f, 2));
+			TinkerRegistry.addMaterialStats(materialNahuatl, new HeadMaterialStats(350, 4.5f, 5f, 2));
 			TinkerRegistry.addMaterialStats(materialNahuatl, new HandleMaterialStats(0.9f, 125));
 			TinkerRegistry.addMaterialStats(materialNahuatl, new ExtraMaterialStats(75));
 			TinkerRegistry.addMaterialStats(materialNahuatl, new BowMaterialStats(0.7f, 0.85f, 4f));
@@ -408,6 +409,7 @@ public class ModMaterials implements MaterialTypes {
 			materialEbonite.addTrait(ModTraits.luminescent);
 			materialEbonite.addTrait(TinkerTraits.dense);
 			materialEbonite.addTrait(TinkerTraits.established);
+			materialEbonite.materialTextColor = 0x544470;
 			TinkerRegistry.addMaterialStats(materialEbonite, new HeadMaterialStats(750, 6.0f, 9.0f, 7));
 			TinkerRegistry.addMaterialStats(materialEbonite, new HandleMaterialStats(2.5f, 60));
 			TinkerRegistry.addMaterialStats(materialEbonite, new ExtraMaterialStats(25));
@@ -536,7 +538,8 @@ public class ModMaterials implements MaterialTypes {
 			materialGallium.addTrait(TinkerTraits.aquadynamic);
 			materialGallium.addTrait(ModTraits.liquid);
 			materialGallium.addTrait(TinkerTraits.crumbling);
-			TinkerRegistry.addMaterialStats(materialGallium, new HeadMaterialStats(100, 6f, 10f, 5));
+			materialGallium.materialTextColor = 0xadb7ba;
+			TinkerRegistry.addMaterialStats(materialGallium, new HeadMaterialStats(100, 6f, 5f, 5));
 			TinkerRegistry.addMaterialStats(materialGallium, new HandleMaterialStats(2f, -50));
 			TinkerRegistry.addMaterialStats(materialGallium, new ExtraMaterialStats(2));
 			TinkerRegistry.addMaterialStats(materialGallium, new ArrowShaftMaterialStats(1f, 10));
@@ -612,7 +615,7 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialTriblade, new ExtraMaterialStats(128));
 			materialTriblade.addTrait(ModTraits.tripleshot);
 
-			TinkerRegistry.addMaterialStats(materialTrailblazer, new HeadMaterialStats(2056 * 2, 6f, 4f, 7));
+			TinkerRegistry.addMaterialStats(materialTrailblazer, new HeadMaterialStats(2056 * 2, 6f, 18f, 7));
 			TinkerRegistry.addMaterialStats(materialTrailblazer, new ExtraMaterialStats(512 * 2));
 			materialTrailblazer.addTrait(ModTraits.aerialFlames);
 			materialTrailblazer.addTrait(ModTraits.luminescent);
@@ -703,9 +706,9 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialBlightsteel, new BowMaterialStats(1.2f, 1.3f, 0.8f));
 
 			materialQuakestruck.addTrait(ModTraits.seismishock);
-			TinkerRegistry.addMaterialStats(materialQuakestruck, new HeadMaterialStats(1800, 20f, 18f, 8));
+			TinkerRegistry.addMaterialStats(materialQuakestruck, new HeadMaterialStats(1800, 17.5f, 10f, 8));
 
-			TinkerRegistry.addMaterialStats(materialCryosplinters, new HeadMaterialStats(2048, 6f, 8f, 5));
+			TinkerRegistry.addMaterialStats(materialCryosplinters, new HeadMaterialStats(2048, 6f, 16f, 5));
 			materialCryosplinters.addTrait(ModTraits.hailshot);
 
 			materialAutoloader.addTrait(ModTraits.autoloading);
@@ -721,13 +724,13 @@ public class ModMaterials implements MaterialTypes {
 			materialSanguiseelium.addTrait(ModTraits.receptive, HEAD);
 			materialSanguiseelium.addTrait(ModTraits.leeching);
 			materialSanguiseelium.addTrait(ModTraits.soulforged);
-			TinkerRegistry.addMaterialStats(materialSanguiseelium, new HeadMaterialStats(2004, 7.5f, 8f, 6));
+			TinkerRegistry.addMaterialStats(materialSanguiseelium, new HeadMaterialStats(2004, 9f, 13f, 6));
 			TinkerRegistry.addMaterialStats(materialSanguiseelium, new HandleMaterialStats(2.5f, 80));
 			TinkerRegistry.addMaterialStats(materialSanguiseelium, new ExtraMaterialStats(100));
 			TinkerRegistry.addMaterialStats(materialSanguiseelium, new ArrowShaftMaterialStats(1.5f, 125));
 			TinkerRegistry.addMaterialStats(materialSanguiseelium, new BowMaterialStats(1.2f, 1.3f, 0.8f));
 
-			TinkerRegistry.addMaterialStats(materialVengeance, new HeadMaterialStats(1024, 6f, 7f, 7));
+			TinkerRegistry.addMaterialStats(materialVengeance, new HeadMaterialStats(1024, 6f, 10f, 7));
 			materialVengeance.addTrait(ModTraits.offense);
 
 			materialZracohlium.addCommonItems("Zracohlium");
@@ -740,7 +743,7 @@ public class ModMaterials implements MaterialTypes {
 			materialZracohlium.addTrait(ModTraits.pyrophoric);
 			materialZracohlium.addTrait(ModTraits.supercritical1);
 			materialZracohlium.addTrait(ModTraits.radioactive);
-			TinkerRegistry.addMaterialStats(materialZracohlium, new HeadMaterialStats(1200, 8f, 6.5f, 5));
+			TinkerRegistry.addMaterialStats(materialZracohlium, new HeadMaterialStats(1200, 8f, 13.5f, 5));
 			TinkerRegistry.addMaterialStats(materialZracohlium, new HandleMaterialStats(1.25f, 125));
 			TinkerRegistry.addMaterialStats(materialZracohlium, new ExtraMaterialStats(90));
 			TinkerRegistry.addMaterialStats(materialZracohlium, new ArrowShaftMaterialStats(1.5f, 125));
@@ -771,6 +774,24 @@ public class ModMaterials implements MaterialTypes {
 
 			TinkerRegistry.addMaterialStats(materialShotgun, new ExtraMaterialStats(1024));
 			materialShotgun.addTrait(ModTraits.polyshot); 
+			
+			materialMonolite.addItem("gemMonolite", 1, Material.VALUE_Ingot);
+			materialMonolite.addItem("blockMonolite", 1, Material.VALUE_Block);
+			materialMonolite.setCastable(false);
+			materialMonolite.setCraftable(true);
+			materialMonolite.setRepresentativeItem("gemMonolite");
+			materialMonolite.addTrait(ModTraits.etheralHarvest, HEAD);
+			materialMonolite.addTrait(ModTraits.darkened, HEAD);
+			materialMonolite.addTrait(ModTraits.overdrive);
+			materialMonolite.addTrait(ModTraits.hardcore);
+			materialMonolite.addTrait(ModTraits.voidic);
+			materialMonolite.addTrait(ModTraits.luminescent, HEAD);
+			materialMonolite.addTrait(ModTraits.luminescent);
+			TinkerRegistry.addMaterialStats(materialMonolite, new HeadMaterialStats(1450, 14.5f, 14f, 6));
+			TinkerRegistry.addMaterialStats(materialMonolite, new HandleMaterialStats(3f, -50));
+			TinkerRegistry.addMaterialStats(materialMonolite, new ExtraMaterialStats(500));
+			TinkerRegistry.addMaterialStats(materialMonolite, whyWouldYouMakeABowOutOfThis);
+
 		}
 		if (CompatManager.aether_legacy) { // TODO add unique toolparts for various aether artifacts
 			materialZanite.addItem("gemZanite", 1, Material.VALUE_Ingot);
@@ -1005,7 +1026,7 @@ public class ModMaterials implements MaterialTypes {
 			materialEmberlight.addTrait(ModTraits.hardcore);
 			materialEmberlight.addTrait(ModTraits.burning);
 			materialEmberlight.addTrait(ModTraits.resilient);
-			TinkerRegistry.addMaterialStats(materialEmberlight, new HeadMaterialStats(1200, 7.0f, 10.0f, 4));
+			TinkerRegistry.addMaterialStats(materialEmberlight, new HeadMaterialStats(1200, 7.0f, 6.5f, 4));
 			TinkerRegistry.addMaterialStats(materialEmberlight, new HandleMaterialStats(2.0f, 20));
 			TinkerRegistry.addMaterialStats(materialEmberlight, new ExtraMaterialStats(12));
 			CompositeRegistry.registerComposite(() -> materialValonite, () -> materialEmberlight, () -> ModFluids.liquidEmber);
@@ -1067,7 +1088,7 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialShockwave, new HeadMaterialStats(1256, 6f, 6.125f, 3));
 			materialShockwave.addTrait(ModTraits.shockwaving);
 
-			TinkerRegistry.addMaterialStats(materialWormed, new HeadMaterialStats(1024, 1f, 4f, 1));
+			TinkerRegistry.addMaterialStats(materialWormed, new HeadMaterialStats(1024, 1f, 5f, 1));
 			materialWormed.addTrait(ModTraits.wormed);
 			
 			materialAncientAlloy.setFluid(ModFluids.liquidAncientAlloy);
@@ -1078,7 +1099,7 @@ public class ModMaterials implements MaterialTypes {
 			materialAncientAlloy.addTrait(TinkerTraits.dense, HEAD);
 			materialAncientAlloy.addTrait(ModTraits.inertia, HEAD);
 			materialAncientAlloy.addTrait(TinkerTraits.heavy);
-			TinkerRegistry.addMaterialStats(materialAncientAlloy, new HeadMaterialStats(1000, 5.5f, 4f, 3));
+			TinkerRegistry.addMaterialStats(materialAncientAlloy, new HeadMaterialStats(1000, 5.5f, 5.5f, 3));
 			TinkerRegistry.addMaterialStats(materialAncientAlloy, new HandleMaterialStats(1f, 125));
 			TinkerRegistry.addMaterialStats(materialAncientAlloy, new ExtraMaterialStats(40));
 			TinkerRegistry.addMaterialStats(materialAncientAlloy, new BowMaterialStats(0.6f, 1.25f, 4f));
@@ -1121,6 +1142,7 @@ public class ModMaterials implements MaterialTypes {
 			ModMaterials.registerMaterial(materialErythynite).toolforge();
 			ModMaterials.registerMaterial(materialShadowglass, null);
 			ModMaterials.registerMaterial(materialEtherstone).toolforge();
+			ModMaterials.registerMaterial(materialMonolite).toolforge();
 			ModMaterials.registerMaterial(materialEssencore, null);
 			ModMaterials.registerMaterial(materialElectarite).toolforge();
 			ModMaterials.registerMaterial(materialHallowsite).toolforge();

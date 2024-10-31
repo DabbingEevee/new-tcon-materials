@@ -106,7 +106,7 @@ public class MoreTCon {
 
 		proxy.preInit();
 
-	} //BowCore
+	} 
 
 	@SubscribeEvent
 	public static void registerBlocks(Register<Block> event) {
@@ -180,6 +180,10 @@ public class MoreTCon {
 		CompositeRegistry.onPostInit();
 
 		ModTraits.postInit();
+		
+		//You're welcome!
+		ReequipHack.registerIgnoredKey(Tags.TINKER_EXTRA);
+		ReequipHack.registerIgnoredKey(Tags.TOOL_DATA); 
 	}
 
 	@EventHandler

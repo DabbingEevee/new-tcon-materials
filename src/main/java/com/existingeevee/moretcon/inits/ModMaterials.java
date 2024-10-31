@@ -206,21 +206,27 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialSlimewood, new ArrowShaftMaterialStats(1.2f, 28));
 			CompositeRegistry.registerComposite(() -> TinkerMaterials.wood, () -> materialSlimewood, () -> TinkerFluids.blueslime);
 
-			// Overslime for the win!
-			TinkerMaterials.slime.addTrait(ModTraits.overslime, HEAD);
-			TinkerMaterials.blueslime.addTrait(ModTraits.overslime, HEAD);
+			// Overslime for the win!			
 			TinkerMaterials.knightslime.addTrait(ModTraits.overslime, HEAD);
-
 			TinkerMaterials.knightslime.addTrait(ModTraits.overcast, HEAD);
+			TinkerMaterials.knightslime.addTrait(ModTraits.overslime);
 
 			TinkerMaterials.slime.addTrait(ModTraits.overgrowth2, HEAD);
+			TinkerMaterials.slime.addTrait(ModTraits.overslime, HEAD);
+			TinkerMaterials.slime.addTrait(TinkerTraits.slimeyGreen, HEAD);
 			TinkerMaterials.slime.addTrait(ModTraits.overgrowth);
+			TinkerMaterials.slime.addTrait(ModTraits.overslime);
 
 			TinkerMaterials.blueslime.addTrait(ModTraits.overgrowth2, HEAD);
+			TinkerMaterials.blueslime.addTrait(ModTraits.overslime, HEAD);
+			TinkerMaterials.blueslime.addTrait(TinkerTraits.slimeyBlue, HEAD);
 			TinkerMaterials.blueslime.addTrait(ModTraits.overgrowth);
+			TinkerMaterials.blueslime.addTrait(ModTraits.overslime);
 
 			TinkerMaterials.magmaslime.addTrait(ModTraits.fireslime, HEAD);
 			TinkerMaterials.magmaslime.addTrait(ModTraits.overgrowth);
+			TinkerMaterials.magmaslime.addTrait(ModTraits.overslime, HEAD);
+			TinkerMaterials.magmaslime.addTrait(ModTraits.overslime);
 
 			materialSearedStone.addItem("blockSeared", 1, Material.VALUE_Ingot);
 			materialSearedStone.setFluid(() -> TinkerFluids.searedStone);
@@ -237,12 +243,17 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialSearedStone, whyWouldYouMakeABowOutOfThis);
 			
 			materialSlimesteel.addCommonItems("Slimesteel");
-			materialSlimesteel.addTrait(ModTraits.slimesharp);
-			TinkerRegistry.addMaterialStats(materialSlimesteel, new HeadMaterialStats(500, 5.0f, 8.0f, 6)); //TODO finalize stats
-			TinkerRegistry.addMaterialStats(materialSlimesteel, new HandleMaterialStats(3.0f, 20));
-			TinkerRegistry.addMaterialStats(materialSlimesteel, new ExtraMaterialStats(20));
-			TinkerRegistry.addMaterialStats(materialSlimesteel, new ArrowShaftMaterialStats(3.0f, 20));
-			TinkerRegistry.addMaterialStats(materialSlimesteel, new BowMaterialStats(0.6f, 1.0f, 3f));
+			materialSlimesteel.setFluid(ModFluids.liquidSlimesteel);
+			materialSlimesteel.setCastable(true);
+			materialSlimesteel.setCraftable(false);
+			materialSlimesteel.setRepresentativeItem("ingotSlimesteel");
+			materialSlimesteel.addTrait(ModTraits.slimesharp, HEAD);
+			materialSlimesteel.addTrait(ModTraits.overslime, HEAD);
+			materialSlimesteel.addTrait(ModTraits.overslime);
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new HeadMaterialStats(1040, 2.5f, 6.0f, 3));
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new HandleMaterialStats(0.6f, 120));
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new ExtraMaterialStats(45));
+			TinkerRegistry.addMaterialStats(materialSlimesteel, new BowMaterialStats(0.9f, 1.0f, 3f));
 		}
 
 		if (CompatManager.plustic) {

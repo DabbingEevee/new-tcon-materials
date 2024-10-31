@@ -22,7 +22,7 @@ public class EulersWrath extends AbstractTrait {
 	@Override
 	public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event) {
 		NBTTagCompound comp = tool.getOrCreateSubCompound(this.getModifierIdentifier());
-		Random rand = new Random(comp.getLong("Seed"));
+		Random rand = new Random(comp.getLong("Seed") + event.getPos().hashCode());
 		if (rand.nextDouble() < 1 / Math.E) {
 			event.setNewSpeed(event.getNewSpeed() * 2 * (float) Math.E);
 		}

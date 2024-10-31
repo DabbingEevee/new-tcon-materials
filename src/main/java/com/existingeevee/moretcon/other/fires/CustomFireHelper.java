@@ -242,7 +242,7 @@ public class CustomFireHelper {
 					int eid = buf.readInt();
 					int time = buf.readInt();
 					int strLen = buf.readByte();
-					String effect = new StringBuilder(strLen) .append(buf.readCharSequence(strLen, StandardCharsets.UTF_8)).toString();
+					String effect = new StringBuilder(strLen).append(buf.readCharSequence(strLen, StandardCharsets.UTF_8)).toString();
 					if (CustomFireEffect.registeredEffects.get(effect) != null) {
 						newCustomBurningData.put(eid, new CustomFireInfo(CustomFireEffect.registeredEffects.get(effect), time, false));
 					}
@@ -267,6 +267,5 @@ public class CustomFireHelper {
 				buf.writeCharSequence(e.getValue().getEffect().id, StandardCharsets.UTF_8);
 			}
 		}
-
 	}
 }

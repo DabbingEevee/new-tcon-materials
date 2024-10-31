@@ -82,6 +82,10 @@ public class ModItems {
 	public static final Item nuggetEbonite = new ItemBase("nuggetEbonite", 0x270339);
 	public static final Item dustEbonite = new ItemBase("dustEbonite", GlowType.CIRCLE_BIG, 0x270339);
 
+	public static final Item ingotSlimesteel = new ItemBase("ingotSlimesteel");
+	public static final Item nuggetSlimesteel = new ItemBase("nuggetSlimesteel");
+	public static final Item dustSlimesteel = new ItemBase("dustSlimesteel");
+	
 	public static final Item carbonPile = new ItemBase("carbonPile").setTab(ModTabs.moarTConMisc);
 	public static final Item ingotSteel = new ItemBase("ingotSteel");
 	public static final Item nuggetSteel = new ItemBase("nuggetSteel");
@@ -126,6 +130,7 @@ public class ModItems {
 	public static final Item gemErythynite = new ItemBase("gemErythynite", GlowType.CIRCLE_BIG, 0x32ff00);
 	public static final Item gemEtherstone = new ItemBase("gemEtherstone", GlowType.CIRCLE_BIG, 0xffff00);
 	public static final Item gemElectarite = new ItemBase("gemElectarite", GlowType.CIRCLE_BIG, 0x6666ff);
+	public static final Item gemMonolite = new ItemBase("gemMonolite", GlowType.CIRCLE_BIG, 0x6666ff);
 
 	//Ingriedients
 	public static final Item itemSiltClay = new ItemBase("itemSiltClay").setTab(ModTabs.moarTConMisc);
@@ -161,9 +166,20 @@ public class ModItems {
 				new ItemDebugTool()
 		);
 
+		if (CompatManager.tic3backport) {
+			ModItems.registerItems(
+					ingotSlimesteel,
+					nuggetSlimesteel
+			);
+			if (ConfigHandler.shouldLoadDust) {
+				ModItems.registerItems(
+						dustSlimesteel
+				);
+			}
+		}
+
 		if (CompatManager.loadMain) {
 			ModItems.registerItems(
-					/**-------------------------------------**/
 					ingotFusionite,
 					nuggetFusionite,
 
@@ -218,6 +234,7 @@ public class ModItems {
 					gemErythynite,
 					gemEtherstone,
 					gemElectarite,
+					gemMonolite,
 
 					crushingModifier,
 					matterReconstructionGel,
@@ -230,9 +247,6 @@ public class ModItems {
 					reforgeHeavy,
 					reforgeSharpened,
 					reforgeConsistant
-
-			/**-------------------------------------**/
-
 			);
 			if (ConfigHandler.shouldLoadDust) {
 				ModItems.registerItems(

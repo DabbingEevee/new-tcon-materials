@@ -46,6 +46,7 @@ public class ModFluidBlocks {
 	public static Block blockLiquifiedSouls;
 	public static Block blockLiquidSanguiseelium;
 	public static Block blockLiquidZracohlium;
+	public static Block blockLiquidSlimesteel;
 	/* ------------------------------------- */
 	private static void registerBlocks(Block... block) {
 		for (Block i : block) {
@@ -54,6 +55,14 @@ public class ModFluidBlocks {
 	}
 
 	public static void init() {
+		if (CompatManager.tic3backport) {
+			blockLiquidSlimesteel = new BlockFluid("liquidslimesteel", ModFluids.liquidSlimesteel, Material.LAVA).setResistance(Float.MAX_VALUE);
+		    
+			ModFluidBlocks.registerBlocks(
+		    		blockLiquidSlimesteel
+		    );
+		}
+		
 		if (CompatManager.loadMain) {
 			blockLiquidFusionite = new CustomFireBlockFluid("liquidfusionite", ModFluids.liquidFusionite, CustomFireEffect.COLD_FIRE, Material.LAVA).setSource(new DamageSource("coldfire").setFireDamage()).setResistance(Float.MAX_VALUE);
 			blockLiquidIrradium = new RadioactiveBlockFluid("liquidirradium", ModFluids.liquidIrradium, Material.LAVA).setResistance(Float.MAX_VALUE);

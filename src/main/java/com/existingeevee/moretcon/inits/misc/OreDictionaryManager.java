@@ -21,6 +21,16 @@ public class OreDictionaryManager {
 	public static void preInit() {
 		registerOre("gemCoal", new ItemStack(Items.COAL));
 
+		if (CompatManager.tic3backport) {
+			registerOre("blockSlimesteel", ModBlocks.blockSlimesteel);
+			registerOre("ingotSlimesteel", ModItems.ingotSlimesteel);
+			registerOre("nuggetSlimesteel", ModItems.nuggetSlimesteel);
+
+			if (ConfigHandler.shouldLoadDust) {
+				registerOre("dustSlimesteel", ModItems.dustSlimesteel);
+			}
+		}	
+		
 		if (CompatManager.loadMain) {
 			registerOre("blockFusionite", ModBlocks.blockFusionite);
 			registerOre("oreFusionite", ModBlocks.oreFusionite);
@@ -132,6 +142,10 @@ public class OreDictionaryManager {
 			registerOre("ingotZracohlium", ModItems.ingotZracohlium);
 			registerOre("nuggetZracohlium", ModItems.nuggetZracohlium);
 
+			registerOre("blockMonolite", ModBlocks.blockMonolite);
+			registerOre("gemMonolite", ModItems.gemMonolite);
+			registerOre("oreMonolite", ModBlocks.oreMonolite);
+			
 			if (ConfigHandler.shouldLoadDust) {
 				registerOre("dustIrradium", ModItems.dustIrradium);
 				registerOre("dustValasium", ModItems.dustValasium);

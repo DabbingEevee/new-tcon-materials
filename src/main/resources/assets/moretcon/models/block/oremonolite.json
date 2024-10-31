@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "moretcon:blocks/oremonolite",
+    "up": "moretcon:blocks/oremonolite",
+    "north": "moretcon:blocks/oremonolite",
+    "east": "moretcon:blocks/oremonolite",
+    "south": "moretcon:blocks/oremonolite",
+    "west": "moretcon:blocks/oremonolite",
+    "particle": "moretcon:blocks/oremonolite"
+  }
+}

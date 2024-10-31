@@ -32,8 +32,6 @@ public class Pyrophoric extends AbstractTrait {
 		super(MiscUtils.createNonConflictiveName("pyrophoric"), 0);
 		ReequipHack.registerIgnoredKey(this.getModifierIdentifier());
 		MinecraftForge.EVENT_BUS.register(this);
-		// TODO Your tool will randomly ignite, granting a bonus to attack speed, attack
-		// damage, harvest level, and mining speed
 	}
 
 	@Override
@@ -65,7 +63,7 @@ public class Pyrophoric extends AbstractTrait {
 	@Override
 	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
 		if (this.isBurning(tool)) {
-			return newDamage +  damage * .75f;
+			return newDamage + damage * .75f;
 		}
 		return newDamage;
 	}
@@ -81,8 +79,7 @@ public class Pyrophoric extends AbstractTrait {
 	public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
 		this.update(tool);
 
-		if (!isSelected || (entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getActiveItemStack() == tool) || world.isRemote)
-		 {
+		if (!isSelected || (entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getActiveItemStack() == tool) || world.isRemote) {
 			return; // we only want things to execute if theyre holding it.
 		}
 

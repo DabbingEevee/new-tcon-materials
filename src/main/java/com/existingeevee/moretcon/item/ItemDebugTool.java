@@ -51,7 +51,7 @@ public class ItemDebugTool extends ItemBase {
 		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 
-	protected boolean debugFunction(World worldIn, EntityPlayer playerIn) { //this is used by me to test stuff.
+	protected boolean debugFunction(World worldIn, EntityPlayer playerIn) { // this is used by me to test stuff.
 		return false;
 	}
 }

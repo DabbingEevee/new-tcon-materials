@@ -11,6 +11,7 @@ import com.existingeevee.moretcon.world.generators.AsteroidGenerator;
 import com.existingeevee.moretcon.world.generators.EtheralToplayerGenerator;
 import com.existingeevee.moretcon.world.generators.IgniglomerateGenerator;
 import com.existingeevee.moretcon.world.generators.MainOreGenerator;
+import com.existingeevee.moretcon.world.generators.MonoliteGenerator;
 import com.existingeevee.moretcon.world.generators.NetherPrismGenerator;
 import com.existingeevee.moretcon.world.generators.NetherSpikeGenerator;
 
@@ -41,16 +42,17 @@ public class MoreTConWorldGen implements IWorldGenerator {
 			modifiers.add(new NetherSpikeGenerator());
 			modifiers.add(new IgniglomerateGenerator());
 			modifiers.add(new NetherPrismGenerator());
+			modifiers.add(new MonoliteGenerator());
 		}
 	}
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		WorldgenContext ctx = new WorldgenContext(world, chunkX, chunkZ, random);
-
 		if (ConfigHandler.disableOreGen) {
 			return;
 		}
+		
 		modifiers.forEach(w -> w.generate(chunkGenerator, chunkProvider, ctx));
 	}
 }

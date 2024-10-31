@@ -130,7 +130,7 @@ public class ModItems {
 	public static final Item gemErythynite = new ItemBase("gemErythynite", GlowType.CIRCLE_BIG, 0x32ff00);
 	public static final Item gemEtherstone = new ItemBase("gemEtherstone", GlowType.CIRCLE_BIG, 0xffff00);
 	public static final Item gemElectarite = new ItemBase("gemElectarite", GlowType.CIRCLE_BIG, 0x6666ff);
-	public static final Item gemMonolite = new ItemBase("gemMonolite", GlowType.CIRCLE_BIG, 0x6666ff);
+	public static final Item gemMonolite = new ItemBase("gemMonolite", GlowType.CIRCLE_BIG, 0x4a74f0);
 
 	//Ingriedients
 	public static final Item itemSiltClay = new ItemBase("itemSiltClay").setTab(ModTabs.moarTConMisc);

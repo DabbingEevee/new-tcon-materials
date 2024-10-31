@@ -17,15 +17,15 @@ public class BlockOre extends BlockBase {
 	Item smeltResult;
 
 	public BlockOre(String name, int harvest) {
-		this(name, 1, null, 1, 1);
+		this(name, harvest, null, 1, 1);
 	}
 
 	public BlockOre(String name, int harvest, Item toDrop) {
-		this(name, 1, toDrop, 1, 1);
+		this(name, harvest, toDrop, 1, 1);
 	}
 
 	public BlockOre(String name, int harvest, Item toDrop, int dropAmount) {
-		this(name, 1, toDrop, dropAmount, dropAmount);
+		this(name, harvest, toDrop, dropAmount, dropAmount);
 	}
 
 	public BlockOre(String name, int harvest, Item toDrop, int minDropAmount, int maxDropAmount) {

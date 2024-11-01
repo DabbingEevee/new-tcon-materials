@@ -81,15 +81,20 @@ public class MonoliteGenerator extends WorldGenModifier {
 
 	private static IBlockStateProvider provider(Random random) {
 		return new IBlockStateProvider.RandomBlockStateProvider(
-				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.OBSIDIAN.getDefaultState()),
-				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.OBSIDIAN.getDefaultState()),
-				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.OBSIDIAN.getDefaultState()),
-				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.OBSIDIAN.getDefaultState()),
-				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.BEDROCK.getDefaultState()),
 				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
 				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
-				new IBlockStateProvider.ConstantBlockStateProvider(ModBlocks.oreMonolite.getDefaultState())
-				
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(Blocks.END_STONE.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(ModBlocks.oreMonolite.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(ModBlocks.oreMonolite.getDefaultState()),
+				new IBlockStateProvider.ConstantBlockStateProvider(ModBlocks.oreEchostone.getDefaultState())
+								
 				);
 	}
 }

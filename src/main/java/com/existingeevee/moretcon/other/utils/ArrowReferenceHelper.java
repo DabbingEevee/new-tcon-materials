@@ -16,11 +16,11 @@ import slimeknights.tconstruct.library.events.TinkerToolEvent.OnBowShoot;
 
 public class ArrowReferenceHelper {
 
-	private static final Map<ItemStack,ItemStack> PROJECTILE_STACKS = new WeakHashMap<>();
+	private static final Map<ItemStack, ItemStack> PROJECTILE_STACKS = new WeakHashMap<>();
 
-	@Deprecated //Nuh uh dont even think about it
+	@Deprecated // Nuh uh dont even think about it
 	public static void saveProjectileStack(ItemStack ammoCopy, ItemStack ammo) {
-		PROJECTILE_STACKS.put(ammoCopy,  ammo);
+		PROJECTILE_STACKS.put(ammoCopy, ammo);
 	}
 
 	public static ItemStack getProjectileStack(TinkerProjectileHandler proj) {

@@ -16,9 +16,10 @@ import com.existingeevee.moretcon.traits.ModTraits;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import slimeknights.mantle.util.TagHelper;
 import slimeknights.tconstruct.library.capability.projectile.TinkerProjectileHandler;
 import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.tools.ranged.IAmmo;
 import slimeknights.tconstruct.library.traits.IProjectileTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
@@ -51,7 +52,7 @@ public abstract class MixinTinkerProjectileHandler {
 
 	@Inject(at = @At(value = "RETURN"), method = "setItemStack", remap = false)
 	public void moretcon$RETURN_Inject$setItemStack(ItemStack stack, CallbackInfo ci) {
-		if (parent == null) 
+		if (parent == null)
 			return;
 		parentOrig = parent.copy();
 		((TinkerProjectileHandler) (Object) this).setLaunchingStack(launcher);
@@ -61,10 +62,10 @@ public abstract class MixinTinkerProjectileHandler {
 	public void moretcon$RETURN_Inject$setLaunchingStack(ItemStack launchingStack, CallbackInfo ci) {
 		if (launchingStack == null || parent == null)
 			return;
-		
+
 		boolean modified = false;
 		this.parent = parentOrig.copy();
-		
+
 		if (ModTraits.polyshot.isToolWithTrait(launchingStack)) {
 			ModTraits.polyshotProj.apply(parent);
 			modified = true;
@@ -74,18 +75,17 @@ public abstract class MixinTinkerProjectileHandler {
 			for (ITrait t : ToolHelper.getTraits(launchingStack)) {
 				if (t instanceof IModifier) {
 					IModifier mod = (IModifier) t;
-					try {
-						if (mod.canApply(parent.copy(), parent)) {
-							mod.apply(parent);
-						}
-					} catch (TinkerGuiException e) {
-					}
+					mod.apply(parent);
+					modified = true;
 				}
 			}
-			modified = true;
 		}
 		
 		if (modified) {
+			NBTTagCompound tag = TagHelper.getTagSafe(parent);
+			tag.setBoolean("PreventInvLink", true);
+			parent.setTagCompound(tag);
+			
 			updateTraits();
 		}
 	}

@@ -37,9 +37,9 @@ public class PolyshotProj extends AbstractProjectileTrait {
 
 			if (!world.isRemote && ticProjectile.getItemStack().getItem() instanceof ProjectileCore) {
 				IS_ALREADY_PROCING.set(true);
-				
+
 				int toShoot = random.nextInt(3) + 4;
-				
+
 				modifyProjectile(projectileBase, shooter, speed);
 				for (int i = 0; i < toShoot - 1; i++) {
 					spawnProjectile(projectileBase, shooter, speed);
@@ -56,7 +56,7 @@ public class PolyshotProj extends AbstractProjectileTrait {
 
 	public static void spawnProjectile(EntityProjectileBase projectileBase, EntityLivingBase shooter, float power) {
 		ItemStack stack = projectileBase.tinkerProjectile.getItemStack().copy();
-		ItemStack launcher = projectileBase.tinkerProjectile.getLaunchingStack().copy(); 
+		ItemStack launcher = projectileBase.tinkerProjectile.getLaunchingStack().copy();
 
 		EntityProjectileBase proj = ((ProjectileCore) stack.getItem()).getProjectile(stack, launcher, shooter.world, shooter instanceof EntityPlayer ? (EntityPlayer) shooter : null, 2.1f, 0f, 1f, false);
 
@@ -75,6 +75,16 @@ public class PolyshotProj extends AbstractProjectileTrait {
 		float velo = power;
 
 		// Reshoot
-		projectileBase.shoot(shooter, shooter.rotationPitch, shooter.rotationYaw, 0, velo, 15f); // MASSIVE inaccuracy, low speed
+		projectileBase.shoot(shooter, shooter.rotationPitch, shooter.rotationYaw, 0, velo, 25f); // MASSIVE inaccuracy, low speed
+	}
+
+	@Override
+	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
+		return newDamage * 0.5f;
+	}
+
+	@Override
+	public int getPriority() {
+		return 6942069; 
 	}
 }

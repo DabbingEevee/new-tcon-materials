@@ -182,8 +182,8 @@ public class MoreTCon {
 		ModTraits.postInit();
 		
 		//You're welcome!
-		ReequipHack.registerIgnoredKey(Tags.TINKER_EXTRA);
 		ReequipHack.registerIgnoredKey(Tags.TOOL_DATA); 
+		ReequipHack.registerIgnoredKey(Tags.BASE_MODIFIERS);
 	}
 
 	@EventHandler

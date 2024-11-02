@@ -390,6 +390,8 @@ modifier.moretcon.dematerializing.name=Dematerializing
 modifier.moretcon.dematerializing.desc=§oYour intermolecular cohesion privileges have been revoked :3§r\nYour tool will atomize arrows and turn them into a beam that obliterates anything in its path when fully drawn.
 modifier.moretcon.plasma_missiles.name=Plasma Missiles
 modifier.moretcon.plasma_missiles.desc=§oGO MY MISSILES!!!!§r\nYour tool will fire tracking missiles on hit. The missiles have a 20% chance to proc traits.
+modifier.moretcon.macrocrystaline.name=Macrocrystaline
+modifier.moretcon.macrocrystaline.desc=§oIt's perfect...§r\nYour tool loves perfect powers of 2... especially its durability remaining is divisible by one...
 
 modifier.moretcon.reforgeheavy.name=Heavy
 modifier.moretcon.reforgeheavy.flavor=§oDo you even lift??

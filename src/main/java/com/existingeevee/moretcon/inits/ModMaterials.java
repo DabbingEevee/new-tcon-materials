@@ -780,18 +780,14 @@ public class ModMaterials implements MaterialTypes {
 			materialMonolite.setCastable(false);
 			materialMonolite.setCraftable(true);
 			materialMonolite.setRepresentativeItem("gemMonolite");
-			materialMonolite.addTrait(ModTraits.etheralHarvest, HEAD);
-			materialMonolite.addTrait(ModTraits.darkened, HEAD);
-			materialMonolite.addTrait(ModTraits.overdrive);
+			materialMonolite.addTrait(ModTraits.macrocrystaline);
 			materialMonolite.addTrait(ModTraits.hardcore);
-			materialMonolite.addTrait(ModTraits.voidic);
-			materialMonolite.addTrait(ModTraits.luminescent, HEAD);
 			materialMonolite.addTrait(ModTraits.luminescent);
 			TinkerRegistry.addMaterialStats(materialMonolite, new HeadMaterialStats(1450, 14.5f, 14f, 6));
 			TinkerRegistry.addMaterialStats(materialMonolite, new HandleMaterialStats(3f, -50));
 			TinkerRegistry.addMaterialStats(materialMonolite, new ExtraMaterialStats(500));
 			TinkerRegistry.addMaterialStats(materialMonolite, whyWouldYouMakeABowOutOfThis);
-
+			TinkerRegistry.addMaterialStats(materialMonolite, new ArrowShaftMaterialStats(1.2f, 35));
 		}
 		if (CompatManager.aether_legacy) { // TODO add unique toolparts for various aether artifacts
 			materialZanite.addItem("gemZanite", 1, Material.VALUE_Ingot);

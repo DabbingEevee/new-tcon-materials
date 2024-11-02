@@ -43,6 +43,7 @@ import com.existingeevee.moretcon.traits.traits.KineticBattery;
 import com.existingeevee.moretcon.traits.traits.Leeching;
 import com.existingeevee.moretcon.traits.traits.Liquid;
 import com.existingeevee.moretcon.traits.traits.Luminescent;
+import com.existingeevee.moretcon.traits.traits.Macrocrystaline;
 import com.existingeevee.moretcon.traits.traits.Magical;
 import com.existingeevee.moretcon.traits.traits.MagicallyReactive;
 import com.existingeevee.moretcon.traits.traits.Overdrive;
@@ -177,6 +178,7 @@ public class ModTraits {
 	public static Approximate approximate2 = new Approximate(2);
 	public static Slimesharp slimesharp = new Slimesharp();
 	public static Polyshot polyshot = new Polyshot();
+	public static Macrocrystaline macrocrystaline = new Macrocrystaline();
 
 	public static PolyshotProj polyshotProj = new PolyshotProj();
 

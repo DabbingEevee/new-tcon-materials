@@ -14,11 +14,21 @@ import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.smeltery.CastingRecipe;
+import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerFluids;
+import slimeknights.tconstruct.shared.block.BlockSlime.SlimeType;
 import twilightforest.entity.passive.EntityTFPenguin;
 
 public class SmelteryInit {
 	public static void init() {
+		TinkerRegistry.registerMelting(TinkerCommons.matSlimeBallBlue, TinkerFluids.blueslime, 250);
+		TinkerRegistry.registerMelting(new ItemStack(TinkerCommons.blockSlimeCongealed, 1, SlimeType.BLUE.meta), TinkerFluids.blueslime, 1000);
+		TinkerRegistry.registerMelting(new ItemStack(TinkerCommons.blockSlime, 1, SlimeType.BLUE.meta), TinkerFluids.blueslime, 2250);
+		
+		if (CompatManager.tic3backport) {
+			TinkerRegistry.registerAlloy(new FluidStack(ModFluids.liquidSlimesteel, 288), new FluidStack(TinkerFluids.iron, 144), new FluidStack(TinkerFluids.blueslime, 250), new FluidStack(TinkerFluids.searedStone, 72));
+		}
+
 		if (CompatManager.loadMain) {
 			TinkerRegistry.registerMelting(ModItems.hydrogenRichRedstonePowder, ModFluids.liquidHydrogen, Material.VALUE_Ingot);
 			TinkerRegistry.registerMelting(Blocks.SOUL_SAND, ModFluids.liquidLiquifiedSouls, Material.VALUE_Ingot / 16);

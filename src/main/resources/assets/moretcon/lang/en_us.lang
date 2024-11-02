@@ -224,10 +224,12 @@ material.moretcon.sanguiseelium.name=Sanguiseelium
 material.moretcon.zracohlium.name=Zracohlium
 material.moretcon.searedstone.name=Seared Stone
 material.moretcon.ioximite.name=Ioximite
+material.moretcon.slimesteel.name=Slimesteel
+material.moretcon.monolite.name=Monolite
 
 material.uniquetoolpart.name=Unique
 
-modifier.moretcon.kinetic_battery.desc=§oUNO REVERSE!\n§rYour tool will store kinetic energy whenever you take damage. Attacking while shifting to release the energy all at once.
+modifier.moretcon.kinetic_battery.desc=§oUNO REVERSE!\n§rYour tool will store kinetic energy whenever you take or deal damage. Attacking while shifting to release the energy all at once.
 modifier.moretcon.kinetic_battery.name=Kinetic Battery
 modifier.moretcon.oxide.desc=§ofree durability*!\n§rYour between-tool will consume corrosion instead of durability, until it runs out. Not friendly towards non between-tools.
 modifier.moretcon.oxide.name=Oxide
@@ -274,7 +276,7 @@ modifier.moretcon.liquid.desc=§oDang, i spilt me sword§r\nYour tool will break
 modifier.moretcon.liquid.name=Liquid
 modifier.moretcon.magical.desc=§oZAP, you are now fishe§r\nYour tool will deal massive magical knockback occasionally.
 modifier.moretcon.magical.name=Magical
-modifier.moretcon.mirroring.desc=§oTwice the pride, double the fall\n§rYour projectile will gain the projectile traits of the materials from your launcher.
+modifier.moretcon.mirroring.desc=§oTwice the pride, double the fall\n§rYour projectile will gain the traits of your launcher.
 modifier.moretcon.mirroring.name=Mirroring
 modifier.moretcon.modbetweenified.desc=Fine, I'll do it myself.§r\nYour tool will function at full capacity in the betweenlands
 modifier.moretcon.modbetweenified.name=Betweenified
@@ -402,7 +404,6 @@ modifier.moretcon.reforgesharpened.desc=Your tool will gain a 20% bonus to damag
 modifier.moretcon.reforgeconsistant.name=Consistant
 modifier.moretcon.reforgeconsistant.flavor=§oConsistancy is key
 modifier.moretcon.reforgeconsistant.desc=Your tool will gain stacking bonuses while repeatedly mining the same block type or attacking the same mob type, up to a bonus of 50% extra damage and 2.5 extra mining speed.
-
 
 moretcon.bloodgodsblessing=Blood God's Blessing
 moretcon.hyperflames=Hyperflames

@@ -46,6 +46,10 @@ public class KineticBattery extends NumberTrackerTrait {
 				}
 			}
 		}
+		
+		if (wasHit) {
+			this.addNumber(tool, Math.round(damageDealt / 2f));
+		}
 	}
 
 	@Override

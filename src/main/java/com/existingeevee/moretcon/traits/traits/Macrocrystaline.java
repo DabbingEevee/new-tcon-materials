@@ -22,13 +22,14 @@ public class Macrocrystaline extends AbstractTrait {
 	@Override
 	public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event) {
 		event.setNewSpeed(event.getNewSpeed() + event.getOriginalSpeed() * getPerfection(tool));
-	}
+	} 
 	
 	private int getPerfection(ItemStack tool) {
-		int i = 0;
-		while (ToolHelper.getCurrentDurability(tool) / ((int) Math.pow(2, i) + 0.5) == 0) { // the + 0.5 is just used for rounding lul
+		int i = 0;				
+		while (ToolHelper.getCurrentDurability(tool) % ((int) (Math.pow(2, i) + 0.5)) == 0) { // the + 0.5 is just used for rounding lul
 			i++;
 		}
+
 		return i;
 	}
 }

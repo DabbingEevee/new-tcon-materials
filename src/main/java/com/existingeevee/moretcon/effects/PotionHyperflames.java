@@ -63,7 +63,7 @@ public class PotionHyperflames extends Potion {
 
 	@Override
 	public void performEffect(EntityLivingBase entity, int amplifier) {
-		if (CustomFireHelper.getBurningInfo(entity) == null || CustomFireHelper.getBurningInfo(entity).isInvalid()) {
+		if (!entity.isBurning() && (CustomFireHelper.getBurningInfo(entity) == null || CustomFireHelper.getBurningInfo(entity).isInvalid())) {
 			entity.setFire(1);
 		}
 	}

@@ -59,12 +59,12 @@ public class SpongeRegistry {
 			int i = 1;
 
 			for (SpongeStep s2 : s.getValue().steps) {
-				boolean isResult = false;
+				boolean isResult = true;
 				ItemStack input = new ItemStack(s.getValue().result, 1, i);
 				ItemStack output = new ItemStack(s.getValue().result, 1, 0);
 				if (i != s.getValue().steps.length) {
 					output = new ItemStack(s.getValue().result, 1, i + 1);
-					isResult = true;
+					isResult = false;
 				}
 				TinkerRegistry.registerBasinCasting(new CastingRecipe(output, RecipeMatch.of(input, 1), s2.getFluidStack(), 200, true, !isResult));
 				i++;

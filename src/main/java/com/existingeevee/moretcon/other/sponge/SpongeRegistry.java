@@ -11,6 +11,7 @@ import com.existingeevee.moretcon.ModInfo;
 import com.existingeevee.moretcon.inits.misc.ModSponges;
 import com.existingeevee.moretcon.inits.misc.OreDictionaryManager;
 import com.existingeevee.moretcon.item.ItemBase;
+import com.existingeevee.moretcon.other.ModTabs;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -169,6 +170,7 @@ public class SpongeRegistry {
 			this.recipe.result = this;
 			this.setHasSubtypes(true);
 			this.setMaxDamage(0);
+			this.setTab(ModTabs.moarTConMisc);
 			RECIPES.put(recipe.recipeName, recipe);
 		}
 

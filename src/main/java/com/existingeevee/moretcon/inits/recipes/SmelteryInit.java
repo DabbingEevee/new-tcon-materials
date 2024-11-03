@@ -38,8 +38,8 @@ public class SmelteryInit {
 			TinkerRegistry.registerAlloy(new FluidStack(ModFluids.liquidBlightsteel, 2), new FluidStack(ModFluids.liquidHallowsite, 1), new FluidStack(ModFluids.liquidEbonite, 1));
 			TinkerRegistry.registerAlloy(new FluidStack(ModFluids.liquidFusionLava, 125), new FluidStack(ModFluids.liquidFusionite, 18), new FluidStack(FluidRegistry.LAVA, 125), new FluidStack(TinkerFluids.ardite, 9));
 			TinkerRegistry.registerSmelteryFuel(new FluidStack(ModFluids.liquidFusionLava, 16), 1024);
-			TinkerRegistry.registerTableCasting(new CastingRecipe(new ItemStack(ModItems.matterReconstructionGel, 1), RecipeMatch.of(new ItemStack(ModItems.hydrogenRichRedstonePowder)), TinkerFluids.knightslime, Material.VALUE_Ingot * 4, true, true));
-			TinkerRegistry.registerTableCasting(new CastingRecipe(new ItemStack(ModItems.rawSteel, 1), RecipeMatch.of(new ItemStack(ModItems.carbonPile)), TinkerFluids.iron, Material.VALUE_Ingot, true, true));
+			TinkerRegistry.registerTableCasting(new CastingRecipe(new ItemStack(ModItems.matterReconstructionGel, 1), RecipeMatch.of(new ItemStack(ModItems.hydrogenRichRedstonePowder)), TinkerFluids.knightslime, Material.VALUE_Ingot * 4, true, false));
+			TinkerRegistry.registerTableCasting(new CastingRecipe(new ItemStack(ModItems.rawSteel, 1), RecipeMatch.of(new ItemStack(ModItems.carbonPile)), TinkerFluids.iron, Material.VALUE_Ingot, true, false));
 		}
 		if(CompatManager.twilightforest) {
 	    	TinkerRegistry.registerEntityMelting(EntityTFPenguin.class, new FluidStack(ModFluids.liquidPenguinite, 16));

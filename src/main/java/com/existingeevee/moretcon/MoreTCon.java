@@ -183,6 +183,7 @@ public class MoreTCon {
 		
 		//You're welcome!
 		ReequipHack.registerIgnoredKey(Tags.TOOL_DATA); 
+		ReequipHack.registerIgnoredKey(Tags.TINKER_EXTRA); 
 		ReequipHack.registerIgnoredKey(Tags.BASE_MODIFIERS);
 	}
 

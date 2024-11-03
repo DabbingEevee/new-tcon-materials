@@ -1,6 +1,5 @@
 package com.existingeevee.moretcon.traits.traits.unique;
 
-import com.existingeevee.moretcon.other.utils.MiscUtils;
 import com.existingeevee.moretcon.traits.traits.abst.DummyTrait;
 
 import net.minecraft.nbt.NBTTagCompound;
@@ -13,7 +12,7 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 public class Polyshot extends DummyTrait {
 
 	public Polyshot() {
-		super(MiscUtils.createNonConflictiveName("polyshot"), 0xFFFFFF);
+		super("polyshot", 0x545454);
 		MinecraftForge.EVENT_BUS.register(this); //ToolHelper. // Arrow
 	}
 

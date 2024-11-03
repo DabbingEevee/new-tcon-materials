@@ -229,6 +229,19 @@ public class UniqueToolpartRecipes {
 								Pair.of('E', new TinkerPartIngredient(ModMaterials.materialElectarite, "tconstruct:bow_limb")),
 								Pair.of('R',  Ingredient.fromStacks(new ItemStack(Blocks.END_ROD)))));
 			}
+			
+			if (canRegisterUniqueRecipe(ModMaterials.materialShotgun)) {
+				event.getRegistry().register(
+						RecipeHelper.createRecipe("shotgun_recipe", ModMaterials.materialShotgun.getUniqueToolPart(),
+								new String[] {
+										"VV ",
+										" ZV",
+										"T V"
+								},
+								Pair.of('Z', new TinkerPartIngredient(ModMaterials.materialZracohlium, "tconstruct:tough_binding")),
+								Pair.of('V', new OreIngredient("ingotValasium")),
+								Pair.of('T',  Ingredient.fromStacks(new ItemStack(Blocks.TNT)))));
+			}
 		}
 	}
 

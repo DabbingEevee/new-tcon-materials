@@ -108,11 +108,12 @@ public class UniqueToolpartRecipes {
 						RecipeHelper.createRecipe("triblade_recipe", ModMaterials.materialTriblade.getUniqueToolPart(),
 								new String[] {
 										"W W",
-										"VB ",
+										"VM ",
 										"BVW"
 								},
 								Pair.of('W', Ingredient.fromStacks(new ItemStack(Items.SKULL, 1, 1))),
-								Pair.of('V', new OreIngredient("gemVoidSpar")),
+								Pair.of('V', new OreIngredient("blockVoidSpar")),
+								Pair.of('M', new OreIngredient("blockMonolite")),
 								Pair.of('B', new OreIngredient("boneWithered"))));
 			}
 

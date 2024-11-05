@@ -13,6 +13,7 @@ import com.existingeevee.moretcon.inits.ModPotions;
 import com.existingeevee.moretcon.inits.ModReforges;
 import com.existingeevee.moretcon.inits.misc.ModSponges;
 import com.existingeevee.moretcon.inits.misc.OreDictionaryManager;
+import com.existingeevee.moretcon.inits.recipes.ExplosiveChargeRecipes;
 import com.existingeevee.moretcon.inits.recipes.FurnaceInit;
 import com.existingeevee.moretcon.inits.recipes.MiscRecipes;
 import com.existingeevee.moretcon.inits.recipes.OreRecipes;
@@ -125,7 +126,8 @@ public class MoreTCon {
 		OreRecipes.init(event);
 		UniqueToolpartRecipes.init(event);
 		ReforgeRecipes.init(event);
-
+		ExplosiveChargeRecipes.init(event);
+		
 		SpongeRegistry.registerRecipes(event);
 
 		if (CompatManager.thebetweenlands) {

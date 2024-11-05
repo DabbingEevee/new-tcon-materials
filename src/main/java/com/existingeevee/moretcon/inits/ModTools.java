@@ -37,7 +37,7 @@ public class ModTools {
 	public static ToolCore toolRing;
 	public static ToolCore toolBomb;
 
-	public static void init() {
+	public static void init() { // Pattern
 		init(false);
 	}
 
@@ -49,7 +49,17 @@ public class ModTools {
 			shrapnel = (ToolPart) new ToolPart(Material.VALUE_Ingot * 2).setUnlocalizedName(MiscUtils.createNonConflictiveName("shrapnel"));
 			RegisterHelper.registerItem(shrapnel);
 
-			explosiveCharge = (ToolPart) new ToolPart(1).setUnlocalizedName(MiscUtils.createNonConflictiveName("explosive_charge"));
+			explosiveCharge = (ToolPart) new ToolPart(1) {
+				@Override
+				public boolean canBeCrafted() {
+					return false;
+				}
+
+				@Override
+				public boolean canBeCasted() {
+					return false;
+				}
+			}.setUnlocalizedName(MiscUtils.createNonConflictiveName("explosive_charge"));
 			RegisterHelper.registerItem(explosiveCharge);
 
 			toolBomb = tryMakeToolInstance("Bomb");
@@ -115,15 +125,15 @@ public class ModTools {
 	@SideOnly(Side.CLIENT)
 	public static void registerToolGui() {
 		if (ConfigHandler.enableBomb) {
-	        ToolBuildGuiInfo buildSceptre = new ToolBuildGuiInfo(toolBomb);
-	        buildSceptre.addSlotPosition(8, 44); // shrapnel
-	        buildSceptre.addSlotPosition(26, 44); // shell clamp
-	        buildSceptre.addSlotPosition(26, 26); // top
-	        buildSceptre.addSlotPosition(26, 62); // bottom
-	        buildSceptre.addSlotPosition(44, 44); // charge
-	        TinkerRegistryClient.addToolBuilding(buildSceptre);
+			ToolBuildGuiInfo buildSceptre = new ToolBuildGuiInfo(toolBomb);
+			buildSceptre.addSlotPosition(8, 44); // shrapnel
+			buildSceptre.addSlotPosition(26, 44); // shell clamp
+			buildSceptre.addSlotPosition(26, 26); // top
+			buildSceptre.addSlotPosition(26, 62); // bottom
+			buildSceptre.addSlotPosition(44, 44); // charge
+			TinkerRegistryClient.addToolBuilding(buildSceptre);
 		}
-		
+
 		if (CompatManager.aether_legacy && ConfigHandler.enableGauntlet) {
 			ToolBuildGuiInfo gauntletInfo = new ToolBuildGuiInfo(toolGauntlet);
 			gauntletInfo.addSlotPosition(12, 62);
@@ -165,7 +175,7 @@ public class ModTools {
 			ToolBuildGuiInfo blbowInfo = new ToolBuildGuiInfo(toolBetweenBow);
 			blbowInfo.addSlotPosition(36, 23);
 			blbowInfo.addSlotPosition(14, 45);
-			blbowInfo.addSlotPosition(38, 47); 
+			blbowInfo.addSlotPosition(38, 47);
 			TinkerRegistryClient.addToolBuilding(blbowInfo);
 		}
 	}

@@ -413,6 +413,8 @@ modifier.moretcon.polyshot.name=Polyshot
 modifier.moretcon.polyshot.desc=§oJust like the movies...§r\nYour tool will behave like a shotgun when fired, shooting several weakened projectiles.
 modifier.moretcon.impact_detonated.name=Impact Detonated
 modifier.moretcon.impact_detonated.desc=§oHow ’bout a nice cup of LIBER-TEA?§r\nYour bomb will detonate instantly when hitting a target, but will deal 25% less damage.
+modifier.moretcon.cryogenics.name=Cryogenics
+modifier.moretcon.cryogenics.desc=§oPopsicle!§r\nYour tool will frost enemies on hit, granting Slowness, Mining Fatigue, and Resistance to your targets. You also deal increased damage to unfrosted targets.
 
 modifier.moretcon.reforgeheavy.name=Heavy
 modifier.moretcon.reforgeheavy.flavor=§oDo you even lift??

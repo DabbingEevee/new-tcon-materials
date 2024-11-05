@@ -29,6 +29,7 @@ import com.existingeevee.moretcon.traits.traits.BottomsEnd;
 import com.existingeevee.moretcon.traits.traits.Burning;
 import com.existingeevee.moretcon.traits.traits.ColdFire;
 import com.existingeevee.moretcon.traits.traits.Corroding;
+import com.existingeevee.moretcon.traits.traits.Cryogenics;
 import com.existingeevee.moretcon.traits.traits.Darkened;
 import com.existingeevee.moretcon.traits.traits.Electrified;
 import com.existingeevee.moretcon.traits.traits.EulersWrath;
@@ -60,6 +61,7 @@ import com.existingeevee.moretcon.traits.traits.Resilient;
 import com.existingeevee.moretcon.traits.traits.Rootplicating;
 import com.existingeevee.moretcon.traits.traits.Rotten;
 import com.existingeevee.moretcon.traits.traits.Searing;
+import com.existingeevee.moretcon.traits.traits.ShockAura;
 import com.existingeevee.moretcon.traits.traits.SkysBlessing;
 import com.existingeevee.moretcon.traits.traits.Slicing;
 import com.existingeevee.moretcon.traits.traits.Slimesharp;
@@ -181,7 +183,8 @@ public class ModTraits {
 	public static Polyshot polyshot = new Polyshot();
 	public static Macrocrystaline macrocrystaline = new Macrocrystaline();
 	public static ImpactDetonated impactDetonated = new ImpactDetonated();
-	
+	public static Cryogenics cryogenics = new Cryogenics();
+	public static ShockAura shockingAura = new ShockAura();
 	
 	public static PolyshotProj polyshotProj = new PolyshotProj();
 

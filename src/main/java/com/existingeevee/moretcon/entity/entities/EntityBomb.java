@@ -3,6 +3,7 @@ package com.existingeevee.moretcon.entity.entities;
 import java.util.List;
 
 import com.existingeevee.moretcon.client.actions.BombAction;
+import com.existingeevee.moretcon.traits.traits.abst.IBombTrait;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.state.IBlockState;
@@ -31,9 +32,11 @@ import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.tools.ranged.ILauncher;
 import slimeknights.tconstruct.library.tools.ranged.IProjectile;
 import slimeknights.tconstruct.library.traits.IProjectileTrait;
+import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.AmmoHelper;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class EntityBomb extends EntityProjectileBase {
@@ -194,6 +197,14 @@ public class EntityBomb extends EntityProjectileBase {
 
 			double radius = getDoubleTag(item, "Radius");
 
+			List<ITrait> traits = TinkerUtil.getTraitsOrdered(item);
+			for (ITrait t : traits) {
+				if (t instanceof IBombTrait) {
+					IBombTrait trait = (IBombTrait) t;
+					trait.onDetonate(inventoryItem, world, this, attacker);
+				}
+			}
+			
 			AxisAlignedBB box = new AxisAlignedBB(posX, posY, posZ, posX, posY, posZ).grow(radius);
 			List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, box, e -> e != attacker);
 

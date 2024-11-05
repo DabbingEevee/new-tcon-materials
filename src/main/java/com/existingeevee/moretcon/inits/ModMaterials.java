@@ -201,13 +201,13 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialGunpowder, new ExplosiveMaterialStats(3, 20));
 			
 			TinkerRegistry.addMaterialStats(materialIcy, new ExplosiveMaterialStats(4, 40));
-			//slowing trait TODO
+			materialIcy.addTrait(ModTraits.cryogenics);
 			
 			TinkerRegistry.addMaterialStats(materialGlowstone, new ExplosiveMaterialStats(2, 10));
 			//disorienting trait TODO
 			
 			TinkerRegistry.addMaterialStats(materialRedstone, new ExplosiveMaterialStats(2.5, 20));
-			//shocking aura trait TODO
+			materialRedstone.addTrait(ModTraits.shockingAura);
 			
 			TinkerRegistry.addMaterialStats(materialImpact, new ExplosiveMaterialStats(3.25, 0));
 			materialImpact.addTrait(ModTraits.impactDetonated);

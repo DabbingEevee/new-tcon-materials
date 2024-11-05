@@ -117,6 +117,9 @@ public class Bomb extends ProjectileCore implements MaterialTypes {
 	public ProjectileNBT buildTagData(List<Material> materials) {
 		BombNBT data = new BombNBT();
 
+		if (materials.size() < 5)
+			return data; //prevent dum
+		
 		data.head(materials.get(0).getStatsOrUnknown(HEAD));
 		data.extra(materials.get(1).getStatsOrUnknown(EXTRA));
 		data.handle(materials.get(2).getStatsOrUnknown(HANDLE), materials.get(3).getStatsOrUnknown(HANDLE));

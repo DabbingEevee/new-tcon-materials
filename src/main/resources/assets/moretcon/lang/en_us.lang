@@ -236,6 +236,9 @@ material.moretcon.ioximite.name=Ioximite
 material.moretcon.slimesteel.name=Slimesteel
 material.moretcon.monolite.name=Monolite
 material.moretcon.gunpowder.name=Gunpowder
+material.moretcon.icy.name=Icy
+material.moretcon.redstone.name=Redstone
+material.moretcon.glowstone.name=Glowstone
 
 material.uniquetoolpart.name=Unique
 
@@ -408,6 +411,8 @@ modifier.moretcon.slimesharp.name=Slimesharp
 modifier.moretcon.slimesharp.desc=§oSlimy.... and sharp...§r\nYour tool loves overslime, granting a damage and mining speed bonus depending on the amount of remaining overslime.
 modifier.moretcon.polyshot.name=Polyshot
 modifier.moretcon.polyshot.desc=§oJust like the movies...§r\nYour tool will behave like a shotgun when fired, shooting several weakened projectiles.
+modifier.moretcon.impact_detonated.name=Impact Detonated
+modifier.moretcon.impact_detonated.desc=§oHow ’bout a nice cup of LIBER-TEA?§r\nYour bomb will detonate instantly when hitting a target, but will deal 25% less damage.
 
 modifier.moretcon.reforgeheavy.name=Heavy
 modifier.moretcon.reforgeheavy.flavor=§oDo you even lift??
@@ -423,7 +428,7 @@ moretcon.bloodgodsblessing=Blood God's Blessing
 moretcon.hyperflames=Hyperflames
 moretcon.bleeding=bleeding
 
-stat.explosive_charge.name=Explosive Charge
+stat.moretcon.explosive_charge.name=Explosive Charge
 stat.explosive.radius.name=Radius
 stat.explosive.fuse_time.name=Fuse Time
 
@@ -560,6 +565,7 @@ uniquetoolpart.moretcon.vengeance.name=Vengeance
 uniquetoolpart.moretcon.skybolt.name=Skybolt
 uniquetoolpart.moretcon.dematerializer.name=Dematerializer
 uniquetoolpart.moretcon.shotgun.name=Shotgun
+uniquetoolpart.moretcon.impact.name=Impact
 
 booltracker.active.name=Active
 booltracker.inactive.name=Inactive

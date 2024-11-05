@@ -81,6 +81,7 @@ import com.existingeevee.moretcon.traits.traits.unique.Boltforged;
 import com.existingeevee.moretcon.traits.traits.unique.Dematerializing;
 import com.existingeevee.moretcon.traits.traits.unique.EssentialObliteration;
 import com.existingeevee.moretcon.traits.traits.unique.Hailshot;
+import com.existingeevee.moretcon.traits.traits.unique.ImpactDetonated;
 import com.existingeevee.moretcon.traits.traits.unique.Mirroring;
 import com.existingeevee.moretcon.traits.traits.unique.Offense;
 import com.existingeevee.moretcon.traits.traits.unique.Plasmatic;
@@ -179,7 +180,9 @@ public class ModTraits {
 	public static Slimesharp slimesharp = new Slimesharp();
 	public static Polyshot polyshot = new Polyshot();
 	public static Macrocrystaline macrocrystaline = new Macrocrystaline();
-
+	public static ImpactDetonated impactDetonated = new ImpactDetonated();
+	
+	
 	public static PolyshotProj polyshotProj = new PolyshotProj();
 
 	public static AntiGravity antigravity;

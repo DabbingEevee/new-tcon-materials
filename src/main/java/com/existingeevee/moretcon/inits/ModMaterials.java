@@ -210,7 +210,7 @@ public class ModMaterials implements MaterialTypes {
 			//shocking aura trait TODO
 			
 			TinkerRegistry.addMaterialStats(materialImpact, new ExplosiveMaterialStats(3.25, 0));
-			//impact detonator trait TODO
+			materialImpact.addTrait(ModTraits.impactDetonated);
 		}
 		
 		if (CompatManager.tic3backport) {

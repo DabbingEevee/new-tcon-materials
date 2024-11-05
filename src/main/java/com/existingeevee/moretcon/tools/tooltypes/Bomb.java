@@ -167,6 +167,13 @@ public class Bomb extends ProjectileCore implements MaterialTypes {
 		public double radius;
 		public int fuseTime;
 
+		public BombNBT() {
+		}
+		
+		public BombNBT(NBTTagCompound toolTag) {
+			super(toolTag);
+		}
+
 		public BombNBT charge(ExplosiveMaterialStats... explosives) {
 			double rad = 0;
 			int fus = 0;

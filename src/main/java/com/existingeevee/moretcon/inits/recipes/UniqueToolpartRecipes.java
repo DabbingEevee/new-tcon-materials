@@ -42,6 +42,22 @@ public class UniqueToolpartRecipes {
 			}
 		}
 
+		if (ConfigHandler.enableBomb) {
+			if (canRegisterUniqueRecipe(ModMaterials.materialImpact)) {
+				event.getRegistry().register(
+						RecipeHelper.createRecipe("impact_recipe", ModMaterials.materialImpact.getUniqueToolPart(),
+								new String[] {
+										"RER",
+										"FCF",
+										"RER"
+								},
+								Pair.of('E', new OreIngredient("gemElectarite")),
+								Pair.of('F', new OreIngredient("ingotFusionite")),
+								Pair.of('C', Ingredient.fromItem(Items.END_CRYSTAL)),
+								Pair.of('R', new OreIngredient("dustRedstone"))));
+			}
+		}
+		
 		if (ConfigHandler.shouldAllowPlusTiC) {
 			if (canRegisterUniqueRecipe(ModMaterials.materialCrimson)) {
 				event.getRegistry().register(

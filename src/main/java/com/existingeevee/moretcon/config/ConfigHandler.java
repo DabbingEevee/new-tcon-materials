@@ -153,6 +153,7 @@ public class ConfigHandler {
 		config.addCustomCategoryComment(category, "A category dedicated to a list of ID's of various things which may cause errors if they are not unique");
 		ConfigHandler.decayingEffectEntityID = config.getInt("decayingEffectEntityID".toLowerCase(), category, 8690001, Integer.MIN_VALUE, Integer.MAX_VALUE, "Decaying Effect Entity ID");
 		ConfigHandler.plasmaBoltEntityID = config.getInt("plasmaBoltEntityID".toLowerCase(), category, 8690002, Integer.MIN_VALUE, Integer.MAX_VALUE, "Plasma Bolt Entity ID");
+		ConfigHandler.bombEntityID = config.getInt("bombEntityID".toLowerCase(), category, 8690004, Integer.MIN_VALUE, Integer.MAX_VALUE, "Bomb Entity ID");
 		config.save();
 
 		MoreTConLogger.log("Finished Reading Config.");

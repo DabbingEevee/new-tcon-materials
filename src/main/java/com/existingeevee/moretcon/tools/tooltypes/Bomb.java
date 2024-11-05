@@ -108,6 +108,8 @@ public class Bomb extends ProjectileCore implements MaterialTypes {
 			worldIn.playSound(null, playerIn.getPosition(), SoundEvents.ENTITY_FIREWORK_LAUNCH, SoundCategory.PLAYERS, 2, 1.5f);
 		}
 
+		playerIn.swingArm(hand);
+		
 		return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
 	}
 

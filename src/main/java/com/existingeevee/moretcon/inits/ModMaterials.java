@@ -12,6 +12,7 @@ import com.existingeevee.moretcon.other.utils.CompatManager;
 import com.existingeevee.moretcon.other.utils.MaterialUtils;
 import com.existingeevee.moretcon.other.utils.MiscUtils;
 import com.existingeevee.moretcon.other.utils.RegisterHelper;
+import com.existingeevee.moretcon.tools.tooltypes.Bomb;
 import com.existingeevee.moretcon.tools.tooltypes.Bomb.ExplosiveMaterialStats;
 import com.existingeevee.moretcon.traits.ModTraits;
 
@@ -95,8 +96,11 @@ public class ModMaterials implements MaterialTypes {
 	public static final DelagateFluidMaterial materialSearedStone = new DelagateFluidMaterial(MiscUtils.createNonConflictiveName("searedstone"), 0x4f4a47);
 	public static final Material materialSlimesteel = new Material(MiscUtils.createNonConflictiveName("slimesteel"), 0x47efea);
 
-	//really not gonna be used lmao. only really there explosive charge
+	//really not gonna be used lmao. only really there for explosive charge
 	public static final Material materialGunpowder = new Material(MiscUtils.createNonConflictiveName("gunpowder"), 0x727272); 
+	public static final Material materialIcy = new Material(MiscUtils.createNonConflictiveName("icy"), 0x91bbff); 
+	public static final Material materialGlowstone = new Material(MiscUtils.createNonConflictiveName("glowstone"), 0x00FFFF); 
+	public static final Material materialRedstone = new Material(MiscUtils.createNonConflictiveName("redstone"), 0x990000); 
 
 	// TODO
 	// public static final Material materialQueensslime = new
@@ -184,13 +188,29 @@ public class ModMaterials implements MaterialTypes {
 			MiscUtils.createNonConflictiveName("shotgun"), 0xefefef, "tconstruct:tough_binding",
 			"tconstruct:crossbow");
 
+	public static final UniqueMaterial materialImpact = new UniqueMaterial(
+			MiscUtils.createNonConflictiveName("impact"), 0x007aba, "moretcon:explosive_charge",
+			"moretcon:bomb");
+	
 	private static void initMats() {
 		BowMaterialStats whyWouldYouMakeABowOutOfThis = new BowMaterialStats(0.2f, 0.4f, -1f);
 
 		Material.UNKNOWN.addStats(new ExplosiveMaterialStats(0.25, 1));
 		
 		if (ConfigHandler.enableBomb) {
-			TinkerRegistry.addMaterialStats(materialGunpowder, new ExplosiveMaterialStats(2.5, 20));
+			TinkerRegistry.addMaterialStats(materialGunpowder, new ExplosiveMaterialStats(3, 20));
+			
+			TinkerRegistry.addMaterialStats(materialIcy, new ExplosiveMaterialStats(4, 40));
+			//slowing trait TODO
+			
+			TinkerRegistry.addMaterialStats(materialGlowstone, new ExplosiveMaterialStats(2, 10));
+			//disorienting trait TODO
+			
+			TinkerRegistry.addMaterialStats(materialRedstone, new ExplosiveMaterialStats(2.5, 20));
+			//shocking aura trait TODO
+			
+			TinkerRegistry.addMaterialStats(materialImpact, new ExplosiveMaterialStats(3.25, 0));
+			//impact detonator trait TODO
 		}
 		
 		if (CompatManager.tic3backport) {
@@ -308,6 +328,11 @@ public class ModMaterials implements MaterialTypes {
 			if (CompatManager.plustic) {
 				TinkerRegistry.addMaterialStats(materialFusionite, new LaserMediumMaterialStats(10, 20));
 				TinkerRegistry.addMaterialStats(materialFusionite, new BatteryCellMaterialStats(100000));
+			}
+			if (ConfigHandler.enableBomb) {
+				TinkerRegistry.addMaterialStats(materialFusionite, new ExplosiveMaterialStats(2f, 30));
+				materialFusionite.addTrait(ModTraits.coldFire, Bomb.EXPLOSIVE_CHARGE);
+				materialFusionite.addTrait(ModTraits.luminescent, Bomb.EXPLOSIVE_CHARGE);
 			}
 
 			materialValasium.addItem("oreValasium", 1, Material.VALUE_Ore());
@@ -654,6 +679,11 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialIgniglomerate, new ExtraMaterialStats(250));
 			TinkerRegistry.addMaterialStats(materialIgniglomerate, new ArrowShaftMaterialStats(1f, 10));
 			TinkerRegistry.addMaterialStats(materialIgniglomerate, whyWouldYouMakeABowOutOfThis);
+			if (ConfigHandler.enableBomb) {
+				TinkerRegistry.addMaterialStats(materialIgniglomerate, new ExplosiveMaterialStats(2.5f, 20));
+				materialIgniglomerate.addTrait(ModTraits.hyperheat, Bomb.EXPLOSIVE_CHARGE);
+				materialIgniglomerate.addTrait(ModTraits.luminescent, Bomb.EXPLOSIVE_CHARGE);
+			}
 
 			materialEtherstone.addItem("gemEtherstone", 1, Material.VALUE_Ingot);
 			materialEtherstone.addItem("blockEtherstone", 1, Material.VALUE_Block);
@@ -765,7 +795,11 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialZracohlium, new ExtraMaterialStats(90));
 			TinkerRegistry.addMaterialStats(materialZracohlium, new ArrowShaftMaterialStats(1.5f, 125));
 			TinkerRegistry.addMaterialStats(materialZracohlium, new BowMaterialStats(1.2f, 1.3f, 0.8f));
-
+			if (ConfigHandler.enableBomb) {
+				TinkerRegistry.addMaterialStats(materialZracohlium, new ExplosiveMaterialStats(5f, 40));
+				materialZracohlium.addTrait(ModTraits.pyrophoric, Bomb.EXPLOSIVE_CHARGE);
+			}
+			
 			TinkerRegistry.addMaterialStats(materialDematerializer, new BowMaterialStats(1f, 3.2f, 7f));
 			TinkerRegistry.addMaterialStats(materialDematerializer, new HeadMaterialStats(2069, 10f, 8f, 6));
 			materialDematerializer.addTrait(ModTraits.dematerializing);
@@ -1124,6 +1158,10 @@ public class ModMaterials implements MaterialTypes {
 
 		if (ConfigHandler.enableBomb) {
 			ModMaterials.registerMaterial(materialGunpowder);
+			ModMaterials.registerMaterial(materialIcy);
+			ModMaterials.registerMaterial(materialGlowstone);
+			ModMaterials.registerMaterial(materialRedstone);
+			ModMaterials.registerMaterial(materialImpact);
 		}
 		
 		if (CompatManager.plustic) {

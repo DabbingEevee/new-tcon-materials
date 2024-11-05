@@ -19,7 +19,7 @@ public class RenderBomb extends RenderSnowball<EntityBomb> {
 	public void doRender(EntityBomb entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		double offsetMultiplier = 0;
 		
-		if (entity.isPrimed()) {
+		if (entity.isPrimed() && entity.getTimeRemainingInitial() != 0) {
 			double timeRemaining = entity.getTimeRemaining() - partialTicks;
 			double explosionProgress = Math.min(1, Math.max(0, 1 - timeRemaining / entity.getTimeRemainingInitial()));
 			offsetMultiplier += Math.pow(explosionProgress, 4) * 0.1d;

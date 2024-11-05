@@ -423,6 +423,7 @@ moretcon.bloodgodsblessing=Blood God's Blessing
 moretcon.hyperflames=Hyperflames
 moretcon.bleeding=bleeding
 
+stat.explosive_charge.name=Explosive Charge
 stat.explosive.radius.name=Radius
 stat.explosive.fuse_time.name=Fuse Time
 

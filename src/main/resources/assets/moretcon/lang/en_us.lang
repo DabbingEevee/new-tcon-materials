@@ -51,6 +51,8 @@ item.reforgestone.name=Reforge Stone
 item.moretcon.betweeniccore.name=Betweenic Core
 item.moretcon.crushingmodifier.name=Crushing Modifier
 item.moretcon.betweenifiedmodifier.name=Betweenified Modifier
+item.moretcon.bomb.desc=A Bomb is a throwable projectile weapon that deals significant AOE damage.
+item.moretcon.bomb.name=Bomb
 item.moretcon.blaxe.desc=A Between Axe is an equivalent of a hatchet for the betweenlands.
 item.moretcon.blaxe.name=Between Axe
 item.moretcon.blaxehead.name=Between Axe Head
@@ -66,11 +68,23 @@ item.moretcon.blshovelblade.name=Between Shovel Head
 item.moretcon.blsword.desc=A Between Sword is an equivalent of a broadsword for the betweenlands.
 item.moretcon.blsword.name=Between Sword
 item.moretcon.blswordblade.name=Between Blade
+item.moretcon.rawsteel.name=Raw Steel
+item.moretcon.ring.name=Ring
+item.moretcon.ring.desc=A Ring is a Bauble Accessory for the Ring Slot. When worn... it can activate passive-like traits from materials. The rate of activation lessens the more rings are worn.
+item.moretcon.gauntlet.name=Gauntlet
+item.moretcon.gauntlet.desc=The Gauntlet is a hybrid Tool/Armor that is worn in the Aether Glove Slot. It's capable of activating on-hit traits from materials.
+item.moretcon.smallplate.name=Small Plate
+item.moretcon.spacetimedisruptionpowder.name=Space Time Disruption Powder
+item.moretcon.sulfurbucketiron.name=Sulfur Bucket
+item.moretcon.sulfurbucketsyrmorite.name=Syrmorite Bucket (Sulfur)
+item.moretcon.explosive_charge.name=Explosive Charge
+item.moretcon.shrapnel.name=Shrapnel
 item.moretcon.carbonpile.name=Pile of Carbon
 item.moretcon.itemancientscrap.name=Pile of Ancient Scrap
 item.moretcon.itemancientslag.name=Ancient Slag
 item.moretcon.crushedshockwavesword.name=Crushed Shockwave Sword
 item.moretcon.debugtool.name=ExistingEevee's Strange Debug Tool (E.E.S.D.T.)
+
 item.moretcon.dustarkenium.name=Arkenium Dust
 item.moretcon.dustatronium.name=Atronium Dust
 item.moretcon.dustfiery.name=Fiery Dust
@@ -163,16 +177,6 @@ item.moretcon.nuggetsanguiseelium.name=Sanguiseelium Nugget
 item.moretcon.nuggetzracohlium.name=Zracohlium Nugget
 item.moretcon.nuggetslimesteel.name=Slimesteel Nugget
 
-item.moretcon.rawsteel.name=Raw Steel
-item.moretcon.ring.name=Ring
-item.moretcon.ring.desc=A Ring is a Bauble Accessory for the Ring Slot. When worn... it can activate passive-like traits from materials. The rate of activation lessens the more rings are worn.
-item.moretcon.gauntlet.name=Gauntlet
-item.moretcon.gauntlet.desc=The Gauntlet is a hybrid Tool/Armor that is worn in the Aether Glove Slot. It's capable of activating on-hit traits from materials.
-item.moretcon.smallplate.name=Small Plate
-item.moretcon.spacetimedisruptionpowder.name=Space Time Disruption Powder
-item.moretcon.sulfurbucketiron.name=Sulfur Bucket
-item.moretcon.sulfurbucketsyrmorite.name=Syrmorite Bucket (Sulfur)
-
 itemGroup.moarTConMaterials=Moar TCon: Materials
 itemGroup.moarTConMisc=Moar TCon: Misc
 itemGroup.uniqueToolParts=Unique Toolparts
@@ -231,6 +235,7 @@ material.moretcon.searedstone.name=Seared Stone
 material.moretcon.ioximite.name=Ioximite
 material.moretcon.slimesteel.name=Slimesteel
 material.moretcon.monolite.name=Monolite
+material.moretcon.gunpowder.name=Gunpowder
 
 material.uniquetoolpart.name=Unique
 
@@ -417,6 +422,9 @@ modifier.moretcon.reforgeconsistant.desc=Your tool will gain stacking bonuses wh
 moretcon.bloodgodsblessing=Blood God's Blessing
 moretcon.hyperflames=Hyperflames
 moretcon.bleeding=bleeding
+
+stat.explosive.radius.name=Radius
+stat.explosive.fuse_time.name=Fuse Time
 
 text.uniquely_crafted.crafting_table=Can be crafted in a Crafting Table
 text.uniquely_crafted.shockwave=Can be crafted using an Animator and __n__a Mortar

@@ -12,6 +12,7 @@ import com.existingeevee.moretcon.other.utils.CompatManager;
 import com.existingeevee.moretcon.other.utils.MaterialUtils;
 import com.existingeevee.moretcon.other.utils.MiscUtils;
 import com.existingeevee.moretcon.other.utils.RegisterHelper;
+import com.existingeevee.moretcon.tools.tooltypes.Bomb.ExplosiveMaterialStats;
 import com.existingeevee.moretcon.traits.ModTraits;
 
 import landmaster.plustic.tools.stats.BatteryCellMaterialStats;
@@ -94,13 +95,23 @@ public class ModMaterials implements MaterialTypes {
 	public static final DelagateFluidMaterial materialSearedStone = new DelagateFluidMaterial(MiscUtils.createNonConflictiveName("searedstone"), 0x4f4a47);
 	public static final Material materialSlimesteel = new Material(MiscUtils.createNonConflictiveName("slimesteel"), 0x47efea);
 
-	//TODO
-	// public static final Material materialQueensslime = new Material(Misc.createNonConflictiveName("queensslime"), 0x565808); //Need Custom
-	// public static final Material materialHepatizon = new Material(Misc.createNonConflictiveName("hepatizon"), 0xf1ea3b);
-	// public static final Material materialScorchedStone = new Material(Misc.createNonConflictiveName("scorchedstone"), 0x53453c);
-	// public static final Material materialBloodbone = new Material(Misc.createNonConflictiveName("bloodbone"), 0xb80000);
-	// public static final Material materialNecroticBone = new Material(Misc.createNonConflictiveName("necrobone"), 0x343434);
-	// public static final Material materialBlazingBone = new Material(Misc.createNonConflictiveName("blazingbone"), 0xefc62f);
+	//really not gonna be used lmao. only really there explosive charge
+	public static final Material materialGunpowder = new Material(MiscUtils.createNonConflictiveName("gunpowder"), 0x727272); 
+
+	// TODO
+	// public static final Material materialQueensslime = new
+	// Material(Misc.createNonConflictiveName("queensslime"), 0x565808); //Need
+	// Custom
+	// public static final Material materialHepatizon = new
+	// Material(Misc.createNonConflictiveName("hepatizon"), 0xf1ea3b);
+	// public static final Material materialScorchedStone = new
+	// Material(Misc.createNonConflictiveName("scorchedstone"), 0x53453c);
+	// public static final Material materialBloodbone = new
+	// Material(Misc.createNonConflictiveName("bloodbone"), 0xb80000);
+	// public static final Material materialNecroticBone = new
+	// Material(Misc.createNonConflictiveName("necrobone"), 0x343434);
+	// public static final Material materialBlazingBone = new
+	// Material(Misc.createNonConflictiveName("blazingbone"), 0xefc62f);
 
 	public static final UniqueMaterial materialPlasma = new UniqueMaterial(
 			MiscUtils.createNonConflictiveName("plasma"), 0xff0000, "tconstruct:sword_blade",
@@ -172,10 +183,16 @@ public class ModMaterials implements MaterialTypes {
 	public static final UniqueMaterial materialShotgun = new UniqueMaterial(
 			MiscUtils.createNonConflictiveName("shotgun"), 0xefefef, "tconstruct:tough_binding",
 			"tconstruct:crossbow");
-	
+
 	private static void initMats() {
 		BowMaterialStats whyWouldYouMakeABowOutOfThis = new BowMaterialStats(0.2f, 0.4f, -1f);
 
+		Material.UNKNOWN.addStats(new ExplosiveMaterialStats(0.25, 1));
+		
+		if (ConfigHandler.enableBomb) {
+			TinkerRegistry.addMaterialStats(materialGunpowder, new ExplosiveMaterialStats(2.5, 20));
+		}
+		
 		if (CompatManager.tic3backport) {
 			materialNahuatl.setCastable(false);
 			materialNahuatl.setCraftable(false);
@@ -207,7 +224,7 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialSlimewood, new ArrowShaftMaterialStats(1.2f, 28));
 			CompositeRegistry.registerComposite(() -> TinkerMaterials.wood, () -> materialSlimewood, () -> TinkerFluids.blueslime);
 
-			// Overslime for the win!			
+			// Overslime for the win!
 			TinkerMaterials.knightslime.addTrait(ModTraits.overslime, HEAD);
 			TinkerMaterials.knightslime.addTrait(ModTraits.overcast, HEAD);
 			TinkerMaterials.knightslime.addTrait(ModTraits.overslime);
@@ -242,7 +259,7 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialSearedStone, new HandleMaterialStats(0.85f, -25));
 			TinkerRegistry.addMaterialStats(materialSearedStone, new ExtraMaterialStats(-15));
 			TinkerRegistry.addMaterialStats(materialSearedStone, whyWouldYouMakeABowOutOfThis);
-			
+
 			materialSlimesteel.addCommonItems("Slimesteel");
 			materialSlimesteel.setFluid(ModFluids.liquidSlimesteel);
 			materialSlimesteel.setCastable(true);
@@ -752,12 +769,12 @@ public class ModMaterials implements MaterialTypes {
 			TinkerRegistry.addMaterialStats(materialDematerializer, new BowMaterialStats(1f, 3.2f, 7f));
 			TinkerRegistry.addMaterialStats(materialDematerializer, new HeadMaterialStats(2069, 10f, 8f, 6));
 			materialDematerializer.addTrait(ModTraits.dematerializing);
-			
+
 			materialIoximite.setCastable(false);
 			materialIoximite.setCraftable(false);
 			materialIoximite.addTrait(ModTraits.voidic, HEAD);
 			materialIoximite.addTrait(ModTraits.bottomsEnd, HEAD);
-			materialIoximite.addTrait(ModTraits.plasmaMissiles,HEAD);
+			materialIoximite.addTrait(ModTraits.plasmaMissiles, HEAD);
 			materialIoximite.addTrait(ModTraits.plasmaMissiles);
 			materialIoximite.addTrait(TinkerTraits.unnatural);
 			materialIoximite.addTrait(TinkerTraits.alien);
@@ -773,8 +790,8 @@ public class ModMaterials implements MaterialTypes {
 			CompositeRegistry.registerComposite(() -> materialVoidSpar, () -> materialIoximite, () -> ModFluids.liquidFusionite);
 
 			TinkerRegistry.addMaterialStats(materialShotgun, new ExtraMaterialStats(1024));
-			materialShotgun.addTrait(ModTraits.polyshot); 
-			
+			materialShotgun.addTrait(ModTraits.polyshot);
+
 			materialMonolite.addItem("gemMonolite", 1, Material.VALUE_Ingot);
 			materialMonolite.addItem("blockMonolite", 1, Material.VALUE_Block);
 			materialMonolite.setCastable(false);
@@ -1086,7 +1103,7 @@ public class ModMaterials implements MaterialTypes {
 
 			TinkerRegistry.addMaterialStats(materialWormed, new HeadMaterialStats(1024, 1f, 5f, 1));
 			materialWormed.addTrait(ModTraits.wormed);
-			
+
 			materialAncientAlloy.setFluid(ModFluids.liquidAncientAlloy);
 			materialAncientAlloy.addCommonItems("AncientAlloy");
 			materialAncientAlloy.setCastable(true);
@@ -1105,12 +1122,18 @@ public class ModMaterials implements MaterialTypes {
 	public static void init() {
 		initMats();
 
+		if (ConfigHandler.enableBomb) {
+			ModMaterials.registerMaterial(materialGunpowder);
+		}
+		
 		if (CompatManager.plustic) {
 			ModMaterials.registerMaterial(materialCrimson);
 		}
+		
 		if (CompatManager.easterEggs) {
 			ModMaterials.registerMaterial(materialTechnoblade);
 		}
+		
 		if (CompatManager.loadMain) {
 			ModMaterials.registerMaterial(materialZracohlium).toolforge();
 			ModMaterials.registerMaterial(materialPlasma, null);

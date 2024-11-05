@@ -45,6 +45,7 @@ public class ConfigHandler {
 
 	public static int decayingEffectEntityID = 8690001;
 	public static int plasmaBoltEntityID = 8690002;
+	public static int bombEntityID = 8690003; //TODO
 
 	public static boolean shouldDurabilityCapNonProjectiles = true;
 
@@ -68,6 +69,8 @@ public class ConfigHandler {
 	public static boolean inertiaOnlyWorksOnAdvancedTools = false;
 
 	public static boolean invasiveWorldgen = true;
+
+	public static boolean enableBomb = true;
 
 	public static void initConfig(File file) {
 		config = new Configuration(file, ModInfo.VERSION);
@@ -95,6 +98,7 @@ public class ConfigHandler {
 		ConfigHandler.shouldLoadDust = config.getBoolean("allowdust", category, true, "Set to \"true\" if you want to load dust.");
 		ConfigHandler.enableGauntlet = config.getBoolean("enablegauntlet", category, true, "Set to \"false\" if you want to disable the gauntlet tool.");
 		ConfigHandler.enableRing = config.getBoolean("enablering", category, true, "Set to \"false\" if you want to disable the ring tool.");
+		ConfigHandler.enableBomb = config.getBoolean("enablebomb", category, true, "Set to \"false\" if you want to disable the bomb tool.");
 		ConfigHandler.shouldLoadDustForCompatability = config.getBoolean("compatdust", category, true, "Set to \"false\" if you do not want to load dust for other mods.");
 		ConfigHandler.weakenToolsInBetweenLands = config.getBoolean("weakennonbetweentinkers", category, true, "Set to \"false\" if you do not want to weaken non BetweenTinker tinker items.");
 		ConfigHandler.registerBetweenTinkerTools = config.getBoolean("registerBetweenTinkerTools".toLowerCase(), category, true, "Set to \"false\" if you do not want to  BetweenTinker tinker items to be loaded.");

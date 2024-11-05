@@ -1,0 +1,22 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "moretcon:items/bomb/empty",
+        "layer1": "moretcon:items/bomb/shell_clamp",
+        "layer2": "moretcon:items/bomb/shell_top",
+		"layer3": "moretcon:items/bomb/shell_bottom",
+		"layer4": "moretcon:items/bomb/fuse"
+    },
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 1 ],
+            "scale": [ 0.55, 0.55, 0.55 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 1 ],
+            "scale": [ 0.55, 0.55, 0.55 ]
+        }
+    }
+}

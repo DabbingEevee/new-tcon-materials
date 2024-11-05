@@ -25,6 +25,8 @@ public class ModTools {
 	public static ToolPart betweenSwordBlade;
 	public static ToolPart betweenBowLimb;
 	public static ToolPart smallPlate;
+	public static ToolPart shrapnel;
+	public static ToolPart explosiveCharge;
 
 	public static ToolCore toolBetweenAxe;
 	public static ToolCore toolBetweenSword;
@@ -33,18 +35,29 @@ public class ModTools {
 	public static ToolCore toolBetweenBow;
 	public static ToolCore toolGauntlet;
 	public static ToolCore toolRing;
+	public static ToolCore toolBomb;
 
 	public static void init() {
 		init(false);
 	}
 
-
 	public static void init(boolean isClient) {
 		smallPlate = (ToolPart) new ToolPart(Material.VALUE_Ingot * 1).setUnlocalizedName(MiscUtils.createNonConflictiveName("smallplate"));
 		RegisterHelper.registerItem(smallPlate);
 
+		if (ConfigHandler.enableBomb) {
+			shrapnel = (ToolPart) new ToolPart(Material.VALUE_Ingot * 2).setUnlocalizedName(MiscUtils.createNonConflictiveName("shrapnel"));
+			RegisterHelper.registerItem(shrapnel);
+
+			explosiveCharge = (ToolPart) new ToolPart(1).setUnlocalizedName(MiscUtils.createNonConflictiveName("explosive_charge"));
+			RegisterHelper.registerItem(explosiveCharge);
+
+			toolBomb = tryMakeToolInstance("Bomb");
+			RegisterHelper.registerItem(toolBomb);
+		}
+
 		if (CompatManager.aether_legacy && ConfigHandler.enableGauntlet) {
-			toolGauntlet = tryMakeToolInstance("Gauntlet"); //new Gauntlet();
+			toolGauntlet = tryMakeToolInstance("Gauntlet"); // new Gauntlet();
 			RegisterHelper.registerItem(toolGauntlet);
 		}
 
@@ -94,18 +107,28 @@ public class ModTools {
 
 	private static void registerStencils() {
 		TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), smallPlate));
+		if (ConfigHandler.enableBomb) {
+			TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), shrapnel));
+		}
 	}
-
 
 	@SideOnly(Side.CLIENT)
 	public static void registerToolGui() {
+		if (ConfigHandler.enableBomb) {
+	        ToolBuildGuiInfo buildSceptre = new ToolBuildGuiInfo(toolBomb);
+	        buildSceptre.addSlotPosition(8, 44); // shrapnel
+	        buildSceptre.addSlotPosition(26, 44); // shell clamp
+	        buildSceptre.addSlotPosition(26, 26); // top
+	        buildSceptre.addSlotPosition(26, 62); // bottom
+	        buildSceptre.addSlotPosition(44, 44); // charge
+	        TinkerRegistryClient.addToolBuilding(buildSceptre);
+		}
+		
 		if (CompatManager.aether_legacy && ConfigHandler.enableGauntlet) {
 			ToolBuildGuiInfo gauntletInfo = new ToolBuildGuiInfo(toolGauntlet);
-
 			gauntletInfo.addSlotPosition(12, 62);
 			gauntletInfo.addSlotPosition(30, 44);
 			gauntletInfo.addSlotPosition(48, 26);
-
 			TinkerRegistryClient.addToolBuilding(gauntletInfo);
 		}
 		if (CompatManager.baubles && ConfigHandler.enableRing) {
@@ -140,9 +163,9 @@ public class ModTools {
 			TinkerRegistryClient.addToolBuilding(blpickInfo);
 
 			ToolBuildGuiInfo blbowInfo = new ToolBuildGuiInfo(toolBetweenBow);
-			blbowInfo.addSlotPosition(36, 41 - 18); // top limb
-			blbowInfo.addSlotPosition(32 - 18, 45); // left limb
-			blbowInfo.addSlotPosition(38, 47); // center bowstring
+			blbowInfo.addSlotPosition(36, 23);
+			blbowInfo.addSlotPosition(14, 45);
+			blbowInfo.addSlotPosition(38, 47); 
 			TinkerRegistryClient.addToolBuilding(blbowInfo);
 		}
 	}
@@ -151,7 +174,7 @@ public class ModTools {
 		return (ToolCore) tryMakeInstance("com.existingeevee.moretcon.tools.tooltypes." + toolName);
 	}
 
-	//we have to do this bc bl/other addons may not always be here
+	// we have to do this bc bl/other addons may not always be here
 	private static Object tryMakeInstance(String classPath) {
 		try {
 			Class<?> clazz = Class.forName(classPath);

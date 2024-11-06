@@ -99,7 +99,7 @@ public class ModMaterials implements MaterialTypes {
 	//really not gonna be used lmao. only really there for explosive charge
 	public static final Material materialGunpowder = new Material(MiscUtils.createNonConflictiveName("gunpowder"), 0x727272); 
 	public static final Material materialIcy = new Material(MiscUtils.createNonConflictiveName("icy"), 0x91bbff); 
-	public static final Material materialGlowstone = new Material(MiscUtils.createNonConflictiveName("glowstone"), 0x00FFFF); 
+	public static final Material materialGlowstone = new Material(MiscUtils.createNonConflictiveName("glowstone"), 0xffdb78); 
 	public static final Material materialRedstone = new Material(MiscUtils.createNonConflictiveName("redstone"), 0x990000); 
 
 	// TODO

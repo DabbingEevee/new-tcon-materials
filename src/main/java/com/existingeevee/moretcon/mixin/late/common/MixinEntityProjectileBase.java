@@ -38,7 +38,7 @@ public class MixinEntityProjectileBase {
 		}
 	}
 
-	@Redirect(method = "onHitEntity(Lnet/minecraft/util/math/RayTraceResult;)V", at = @At(value = "INVOKE", target = "Lslimeknights/tconstruct/library/utils/AmmoHelper;getMatchingItemstackFromInventory(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/Entity;Z)Lnet/minecraft/item/ItemStack;"))
+	@Redirect(method = "onHitEntity(Lnet/minecraft/util/math/RayTraceResult;)V", at = @At(value = "INVOKE", target = "Lslimeknights/tconstruct/library/utils/AmmoHelper;getMatchingItemstackFromInventory(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/Entity;Z)Lnet/minecraft/item/ItemStack;", remap = false), remap = false)
 	private ItemStack moretcon$INVOKE_Redirect_getMatchingItemstackFromInventory$onHitEntity(ItemStack stack, Entity entity, boolean damagedOnly) {
 		if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("PreventInvLink")) {
 			return ItemStack.EMPTY;

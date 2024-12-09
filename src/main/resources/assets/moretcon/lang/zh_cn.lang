@@ -403,8 +403,8 @@ moretcon.hyperflames=超焰
 moretcon.bleeding=流血
 
 text.uniquely_crafted.crafting_table=可在工作台合成
-text.uniquely_crafted.shockwave=可用活化器与磨碎的□击□□□刃合成
-text.composite=可用聚□与__l__复合成
+text.uniquely_crafted.shockwave=在活化器里用粉碎冲击波剑合成
+text.composite=可用__s____n__与__l__复合形成
 text.beta.desc=感谢您游玩测试版！请向__n__ ExistingEevee 报告任何问题！__n____n__ 你可以在此处找到问题跟踪器：__n__ 
 text.beta.name=BETA
 text.err.unique.not_correct_tool=提供的独一工具零件不能用于创建此工具！

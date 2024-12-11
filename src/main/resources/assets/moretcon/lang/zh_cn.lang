@@ -223,6 +223,7 @@ material.moretcon.blightsteel.name=枯萎钢
 material.moretcon.sanguiseelium.name=汲血魂金
 material.moretcon.zracohlium.name=临界辐金
 material.moretcon.searedstone.name=焦石
+material.moretcon.ioximite.name=虚空
 
 material.uniquetoolpart.name=独特
 
@@ -396,7 +397,8 @@ modifier.moretcon.reforgesharpened.desc=当耐久度超过 95% 时，你的工�
 modifier.moretcon.reforgeconsistant.name=一致性
 modifier.moretcon.reforgeconsistant.flavor=§o始终如一是关键
 modifier.moretcon.reforgeconsistant.desc=在重复开采同一类型的矿块或攻击同一类型的生物时，你的工具会获得叠加奖励，最高可获得 50% 的额外伤害和 2.5 的额外采掘速度加成。
-
+modifier.moretcon.plasma_missiles.name=等离子导弹
+modifier.moretcon.plasma_missiles.desc=§o去吧，我的导弹!!!!§r/n你的工具会在命中时可能发射追踪导弹，此特质有20%的几率被触发。
 
 moretcon.bloodgodsblessing=血神的祝福
 moretcon.hyperflames=超焰

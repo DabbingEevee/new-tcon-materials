@@ -224,6 +224,7 @@ material.moretcon.sanguiseelium.name=汲血魂金
 material.moretcon.zracohlium.name=临界辐金
 material.moretcon.searedstone.name=焦石
 material.moretcon.ioximite.name=聚变虚空晶体
+
 material.uniquetoolpart.name=独特
 
 modifier.moretcon.kinetic_battery.desc=§oUNO 反转！\n§r当你受到伤害时，你的工具会储存动能。在潜行时攻击可以一次性释放所有能量。

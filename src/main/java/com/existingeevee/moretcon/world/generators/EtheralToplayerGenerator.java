@@ -14,7 +14,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 
 public class EtheralToplayerGenerator extends WorldGenModifier {
-	public static final SimplexNoiseGenerator ETHERAL_GENERATOR = new SimplexNoiseGenerator(7, 0.2f, 0.025f); // dL = 0.5
+	public static final SimplexNoiseGenerator ETHERAL_GENERATOR = new SimplexNoiseGenerator(7, 0.2f, 0.025f, 0); // dL = 0.5
 
 	@Override
 	public void generate(IChunkGenerator chunkGenerator, IChunkProvider chunkProvider, WorldgenContext ctx) {

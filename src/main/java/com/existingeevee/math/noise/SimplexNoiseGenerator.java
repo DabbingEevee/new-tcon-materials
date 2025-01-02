@@ -9,15 +9,16 @@ public class SimplexNoiseGenerator {
 	private double scale;
 	private double roughness;
 	private int octaves;
+	private double offset;
 
-	public SimplexNoiseGenerator(int octaves, double roughness, double scale) {
+	public SimplexNoiseGenerator(int octaves, double roughness, double scale, double offset) {
 		this.octaves = octaves; // Number of Layers combined together to get a natural looking surface
 		this.roughness = roughness; // Increasing the of the range between -1 and 1, causing higher values eg more
 									// rough terrain
 		this.scale = scale; // Overall scaling of the terrain
+		this.offset = offset; // Added to the final amount. essentially shifting the entire noise up or down
 	}
 
-	// WHAT THE FUCK DOWS THIS MEEEAANNNNN>>>>??>>>?>>?>
 	public double generateOctavedSimplexNoise(int x, int y, long seed) {
 		double totalNoise = 0;
 		double layerFrequency = scale;
@@ -31,11 +32,11 @@ public class SimplexNoiseGenerator {
 			layerWeight *= roughness;
 
 		}
-		return totalNoise;
+		return totalNoise + offset;
 	}
 
 	public static class SimplexNoise { // Simplex noise in 2D, 3D. 
-		//EV I removed 4D because it is not needed
+		//EV: I removed 4D because it is not needed
 		
 		public static final SimplexNoise DEFAULT = new SimplexNoise();
 		

@@ -34,6 +34,7 @@ import com.existingeevee.moretcon.traits.traits.Darkened;
 import com.existingeevee.moretcon.traits.traits.Electrified;
 import com.existingeevee.moretcon.traits.traits.EulersWrath;
 import com.existingeevee.moretcon.traits.traits.Fireslime;
+import com.existingeevee.moretcon.traits.traits.Flashbang;
 import com.existingeevee.moretcon.traits.traits.Hardcore;
 import com.existingeevee.moretcon.traits.traits.Haunted;
 import com.existingeevee.moretcon.traits.traits.HelpfulRadiation;
@@ -168,10 +169,10 @@ public class ModTraits {
 	public static Reaching reaching2 = new Reaching(2);
 	public static Supercritical supercritical1 = new Supercritical(1);
 	public static Supercritical supercritical2 = new Supercritical(2);
-	public static Aetheric aetheric = new Aetheric();
-	public static Rootplicating rootplicating = new Rootplicating();
-	public static SkysBlessing blessed = new SkysBlessing();
-	public static Treetap treetap = new Treetap();
+	public static Aetheric aetheric;
+	public static Rootplicating rootplicating;
+	public static SkysBlessing blessed;
+	public static Treetap treetap;
 	public static Pyrophoric pyrophoric = new Pyrophoric();
 	public static Searing searing = new Searing(1);
 	public static Searing searing2 = new Searing(2);
@@ -185,6 +186,7 @@ public class ModTraits {
 	public static ImpactDetonated impactDetonated = new ImpactDetonated();
 	public static Cryogenics cryogenics = new Cryogenics();
 	public static ShockAura shockingAura = new ShockAura();
+	public static Flashbang flashbang = new Flashbang();
 	
 	public static PolyshotProj polyshotProj = new PolyshotProj();
 
@@ -226,6 +228,10 @@ public class ModTraits {
 		}
 		if (CompatManager.aether_legacy) {
 			antigravity = new AntiGravity();
+			rootplicating = new Rootplicating();
+			blessed = new SkysBlessing();
+			treetap = new Treetap();
+			aetheric = new Aetheric();
 		}
 	}
 

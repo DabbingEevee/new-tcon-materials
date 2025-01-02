@@ -34,9 +34,9 @@ fluid.moretcon.mummysludge=木乃伊淤泥
 fluid.moretcon.rottensludge=烂泥
 fluid.moretcon.liquidfusionlava=聚变熔岩
 fluid.moretcon.liquidblightsteel=熔融枯萎钢
-fluid.moretcon.liquidsanguiseelium=熔融Sanguiseelium
+fluid.moretcon.liquidsanguiseelium=熔融汲血魂金
 fluid.moretcon.liquifiedsouls=液态灵魂
-fluid.moretcon.liquidzracohlium=熔融Zracohlium
+fluid.moretcon.liquidzracohlium=熔融临界辐金
 
 item.moretcon.betweenifiedmodifier.desc=将它给任何工具进行强化，都可以使它在交错次元中正常使用。
 item.moretcon.crushingmodifier.desc=为任何工具添加这一强化都会将其 5% 的伤害转化为真实伤害。
@@ -95,8 +95,8 @@ item.moretcon.dustvalasium.name=维拉西恩粉
 item.moretcon.dusthallowsite.name=神圣石粉
 item.moretcon.dustancientalloy.name=远古合金粉
 item.moretcon.dustblightsteel.name=枯萎钢粉
-item.moretcon.dustsanguiseelium.name=Sanguiseelium粉
-item.moretcon.dustzracohlium.name=Zracohlium粉
+item.moretcon.dustsanguiseelium.name=汲血魂金粉
+item.moretcon.dustzracohlium.name=临界辐金粉
 
 item.moretcon.gembloodstone.name=血石
 item.moretcon.gemechostone.name=回音石
@@ -130,8 +130,8 @@ item.moretcon.ingotvalasium.name=维拉西恩锭
 item.moretcon.ingothallowsite.name=神圣石锭
 item.moretcon.ingotancientalloy.name=远古合金锭
 item.moretcon.ingotblightsteel.name=枯萎钢锭
-item.moretcon.ingotsanguiseelium.name=Sanguiseelium锭
-item.moretcon.ingotzracohlium.name=Zracohlium锭
+item.moretcon.ingotsanguiseelium.name=汲血魂金锭
+item.moretcon.ingotzracohlium.name=临界辐金锭
 
 item.moretcon.itemsiltclay.name=粉质粘土
 item.moretcon.lightning.name=闪电
@@ -155,8 +155,8 @@ item.moretcon.nuggetvalasium.name=维拉西恩粒
 item.moretcon.nuggethallowsite.name=神圣石粒
 item.moretcon.nuggetancientalloy.name=远古合金粒
 item.moretcon.nuggetblightsteel.name=枯萎钢粒
-item.moretcon.nuggetsanguiseelium.name=Sanguiseelium粒
-item.moretcon.nuggetzracohlium.name=Zracohlium粒
+item.moretcon.nuggetsanguiseelium.name=汲血魂金粒
+item.moretcon.nuggetzracohlium.name=临界辐金粒
 
 item.moretcon.rawsteel.name=粗钢
 item.moretcon.ring.name=戒指
@@ -220,9 +220,10 @@ material.moretcon.electarite.name=雷电石
 material.moretcon.hallowsite.name=神圣石
 material.moretcon.ancientalloy.name=远古合金
 material.moretcon.blightsteel.name=枯萎钢
-material.moretcon.sanguiseelium.name=Sanguiseelium
-material.moretcon.zracohlium.name=Zracohlium
+material.moretcon.sanguiseelium.name=汲血魂金
+material.moretcon.zracohlium.name=临界辐金
 material.moretcon.searedstone.name=焦石
+material.moretcon.ioximite.name=聚变虚空晶体
 
 material.uniquetoolpart.name=独特
 
@@ -396,15 +397,16 @@ modifier.moretcon.reforgesharpened.desc=当耐久度超过 95% 时，你的工�
 modifier.moretcon.reforgeconsistant.name=一致性
 modifier.moretcon.reforgeconsistant.flavor=§o始终如一是关键
 modifier.moretcon.reforgeconsistant.desc=在重复开采同一类型的矿块或攻击同一类型的生物时，你的工具会获得叠加奖励，最高可获得 50% 的额外伤害和 2.5 的额外采掘速度加成。
-
+modifier.moretcon.plasma_missiles.name=等离子导弹
+modifier.moretcon.plasma_missiles.desc=§o去吧，我的导弹!!!!§r/n你的工具会在命中时可能发射追踪导弹，此特质有20%的几率被触发。
 
 moretcon.bloodgodsblessing=血神的祝福
 moretcon.hyperflames=超焰
 moretcon.bleeding=流血
 
 text.uniquely_crafted.crafting_table=可在工作台合成
-text.uniquely_crafted.shockwave=可用活化器与磨碎的□击□□□刃合成
-text.composite=可用聚□与__l__复合成
+text.uniquely_crafted.shockwave=在活化器里用粉碎冲击波剑合成
+text.composite=可用__s____n__与__l__复合形成
 text.beta.desc=感谢您游玩测试版！请向__n__ ExistingEevee 报告任何问题！__n____n__ 你可以在此处找到问题跟踪器：__n__ 
 text.beta.name=BETA
 text.err.unique.not_correct_tool=提供的独一工具零件不能用于创建此工具！
@@ -448,8 +450,8 @@ tile.moretcon.blockelectarite.name=雷电石块
 tile.moretcon.blockhallowsite.name=神圣石块
 tile.moretcon.blockancientalloy.name=远古合金块
 tile.moretcon.blockblightsteel.name=枯萎钢块
-tile.moretcon.blocksanguiseelium.name=Sanguiseelium块
-tile.moretcon.blockzracohlium.name=Zracohlium块
+tile.moretcon.blocksanguiseelium.name=汲血魂金块
+tile.moretcon.blockzracohlium.name=临界辐金块
 
 tile.moretcon.blockcobbledbedrock.name=基岩圆石
 tile.moretcon.blockcobbledbetweenbedrock.name=交错基岩圆石
@@ -481,10 +483,10 @@ tile.moretcon.liquidhallowsite.name=熔融神圣石
 tile.moretcon.liquidfusionlava.name=聚变熔岩
 tile.moretcon.liquidancientalloy.name=熔融远古合金
 tile.moretcon.liquidblightsteel.name=熔融枯萎钢
-tile.moretcon.liquidsanguiseelium.name=熔融Sanguiseelium
+tile.moretcon.liquidsanguiseelium.name=熔融汲血魂金
 tile.moretcon.mummysludge.name=木乃伊淤泥
 tile.moretcon.liquifiedsouls.name=液态灵魂
-tile.moretcon.liquidzracohlium.name=熔融Zracohlium
+tile.moretcon.liquidzracohlium.name=熔融临界辐金
 
 tile.moretcon.orearkenium.name=阿肯钢矿石
 tile.moretcon.orebloodstone.name=血石矿石
@@ -505,7 +507,7 @@ tile.moretcon.oreebonite.name=硬胶矿石
 tile.moretcon.oreerythynite.name=永恒石矿石
 tile.moretcon.oreelectarite.name=雷电石矿石
 tile.moretcon.orehallowsite.name=神圣石矿石
-tile.moretcon.orezracohlium.name=Zracohlium矿石
+tile.moretcon.orezracohlium.name=临界辐金矿石
 
 tile.moretcon.blockotherstone.name=其他石头
 tile.moretcon.rottensludge.name=烂泥
@@ -547,4 +549,4 @@ spongerecipe.trichromadentium.name=三色合金
 spongerecipe.atronium.name=阿特尼亚
 spongerecipe.solarsteel.name=太阳钢
 spongerecipe.valasium.name=维拉西恩
-spongerecipe.sanguiseelium.name=Sanguiseelium
+spongerecipe.sanguiseelium.name=汲血魂金

@@ -429,14 +429,5 @@ public class MiscUtils {
 	public static Vec3d rotateVec3d(Vec3d original, Vec3d axis, float theta) {
 		Quaternion quaternion = new Quaternion(axis.normalize(), theta, false);
 		return quaternion.transformVector(original);
-
-		/*
-		 * axis = axis.normalize();
-		 * 
-		 * double cos = Math.cos(theta); double sin = Math.sin(theta);
-		 * 
-		 * return original.scale(cos) .add(axis.crossProduct(original).scale(sin))
-		 * .add(axis.scale(axis.dotProduct(original) * (1 - cos)));
-		 */
 	}
 }

@@ -90,6 +90,7 @@ public class ModMaterials implements MaterialTypes {
 	public static final Material materialZracohlium = new Material(MiscUtils.createNonConflictiveName("zracohlium"), 0x444c2a);
 	public static final Material materialIoximite = new Material(MiscUtils.createNonConflictiveName("ioximite"), 0x978cea);
 	public static final Material materialMonolite = new Material(MiscUtils.createNonConflictiveName("monolite"), 0x4a74f0);
+	public static final Material materialGeodesium = new Material(MiscUtils.createNonConflictiveName("geodesium"), 0xbbd190);
 
 	public static final Material materialNahuatl = new Material(MiscUtils.createNonConflictiveName("nahuatl"), 0x3B2754);
 	public static final Material materialSlimewood = new Material(MiscUtils.createNonConflictiveName("slimewood"), 0x96dd8f);
@@ -204,7 +205,7 @@ public class ModMaterials implements MaterialTypes {
 			materialIcy.addTrait(ModTraits.cryogenics);
 			
 			TinkerRegistry.addMaterialStats(materialGlowstone, new ExplosiveMaterialStats(2, 10));
-			//disorienting trait TODO
+			materialGlowstone.addTrait(ModTraits.flashbang);
 			
 			TinkerRegistry.addMaterialStats(materialRedstone, new ExplosiveMaterialStats(2.5, 20));
 			materialRedstone.addTrait(ModTraits.shockingAura);
@@ -335,6 +336,8 @@ public class ModMaterials implements MaterialTypes {
 				materialFusionite.addTrait(ModTraits.luminescent, Bomb.EXPLOSIVE_CHARGE);
 			}
 
+			//materialGeodesium MinecraftMixin TextureManager TextureAtlasSprite
+			
 			materialValasium.addItem("oreValasium", 1, Material.VALUE_Ore());
 			materialValasium.setFluid(ModFluids.liquidValasium);
 			materialValasium.addCommonItems("Valasium");

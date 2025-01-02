@@ -37,6 +37,7 @@ fluid.moretcon.liquidblightsteel=熔融枯萎钢
 fluid.moretcon.liquidsanguiseelium=熔融汲血魂金
 fluid.moretcon.liquifiedsouls=液态灵魂
 fluid.moretcon.liquidzracohlium=熔融临界辐金
+fluid.moretcon.liquidslimesteel=熔融史莱姆钢
 
 item.moretcon.betweenifiedmodifier.desc=将它给任何工具进行强化，都可以使它在交错次元中正常使用。
 item.moretcon.crushingmodifier.desc=为任何工具添加这一强化都会将其 5% 的伤害转化为真实伤害。
@@ -50,6 +51,8 @@ item.reforgestone.name=重铸石
 item.moretcon.betweeniccore.name=交错核心
 item.moretcon.crushingmodifier.name=粉碎强化
 item.moretcon.betweenifiedmodifier.name=交错强化
+item.moretcon.bomb.desc=炸弹是种可造成范围伤害的投掷武器
+item.moretcon.bomb.name=炸弹
 item.moretcon.blaxe.desc=一把交错斧相当于交错次元的斧。
 item.moretcon.blaxe.name=交错斧
 item.moretcon.blaxehead.name=交错斧刃
@@ -65,11 +68,23 @@ item.moretcon.blshovelblade.name=交错铲头
 item.moretcon.blsword.desc=一把交错剑相当于交错次元的剑。
 item.moretcon.blsword.name=交错剑
 item.moretcon.blswordblade.name=交错剑刃
+item.moretcon.rawsteel.name=粗钢
+item.moretcon.ring.name=戒指
+item.moretcon.ring.desc=戒指是戒指槽的一种配饰。戴上时……它可以激活材料的被动特性。戒指佩戴越多，激活率就会越低。
+item.moretcon.gauntlet.name=手套
+item.moretcon.gauntlet.desc=手套是一种混合工具/盔甲，在天境饰品栏中佩戴。它能够激活材料的主动特性。
+item.moretcon.smallplate.name=小板
+item.moretcon.spacetimedisruptionpowder.name=时空扰动粉末
+item.moretcon.sulfurbucketiron.name=硫磺桶
+item.moretcon.sulfurbucketsyrmorite.name=赛摩铜硫磺桶
+item.moretcon.explosive_charge.name=爆炸装药
+item.moretcon.shrapnel.name=破片
 item.moretcon.carbonpile.name=小撮碳
 item.moretcon.itemancientscrap.name=小撮远古碎片
 item.moretcon.itemancientslag.name=远古渣
 item.moretcon.crushedshockwavesword.name=粉碎冲击波剑
 item.moretcon.debugtool.name=ExistingEevee 的奇怪调试工具(E.E.S.D.T.)
+
 item.moretcon.dustarkenium.name=阿肯钢粉
 item.moretcon.dustatronium.name=阿特尼亚粉
 item.moretcon.dustfiery.name=炽铁粉
@@ -97,6 +112,7 @@ item.moretcon.dustancientalloy.name=远古合金粉
 item.moretcon.dustblightsteel.name=枯萎钢粉
 item.moretcon.dustsanguiseelium.name=汲血魂金粉
 item.moretcon.dustzracohlium.name=临界辐金粉
+item.moretcon.dustslimesteel.name=史莱姆钢粉
 
 item.moretcon.gembloodstone.name=血石
 item.moretcon.gemechostone.name=回音石
@@ -107,6 +123,7 @@ item.moretcon.gemerythynite.name=永恒石
 item.moretcon.gemetherstone.name=以太石
 item.moretcon.gemvoidspar.name=虚空晶体
 item.moretcon.gemelectarite.name=雷电石
+item.moretcon.gemmonolite.name=回音水晶
 
 item.moretcon.hydrogenrichredstonepowder.name=富氢红石粉
 item.moretcon.solidlightning.name=固态闪电
@@ -132,6 +149,7 @@ item.moretcon.ingotancientalloy.name=远古合金锭
 item.moretcon.ingotblightsteel.name=枯萎钢锭
 item.moretcon.ingotsanguiseelium.name=汲血魂金锭
 item.moretcon.ingotzracohlium.name=临界辐金锭
+item.moretcon.ingotslimesteel.name=史莱姆钢锭
 
 item.moretcon.itemsiltclay.name=粉质粘土
 item.moretcon.lightning.name=闪电
@@ -157,16 +175,7 @@ item.moretcon.nuggetancientalloy.name=远古合金粒
 item.moretcon.nuggetblightsteel.name=枯萎钢粒
 item.moretcon.nuggetsanguiseelium.name=汲血魂金粒
 item.moretcon.nuggetzracohlium.name=临界辐金粒
-
-item.moretcon.rawsteel.name=粗钢
-item.moretcon.ring.name=戒指
-item.moretcon.ring.desc=戒指是戒指槽的一种配饰。戴上时……它可以激活材料的被动特性。戒指佩戴越多，激活率就会越低。
-item.moretcon.gauntlet.name=手套
-item.moretcon.gauntlet.desc=手套是一种混合工具/盔甲，在天境饰品栏中佩戴。它能够激活材料的主动特性。
-item.moretcon.smallplate.name=小板
-item.moretcon.spacetimedisruptionpowder.name=时空扰动粉末
-item.moretcon.sulfurbucketiron.name=硫磺桶
-item.moretcon.sulfurbucketsyrmorite.name=赛摩铜硫磺桶
+item.moretcon.nuggetslimesteel.name=史莱姆钢粒
 
 itemGroup.moarTConMaterials=更多匠魂材料丨材料
 itemGroup.moarTConMisc=更多匠魂材料丨杂项
@@ -224,6 +233,12 @@ material.moretcon.sanguiseelium.name=汲血魂金
 material.moretcon.zracohlium.name=临界辐金
 material.moretcon.searedstone.name=焦石
 material.moretcon.ioximite.name=聚变虚空晶体
+material.moretcon.slimesteel.name=史莱姆钢
+material.moretcon.monolite.name=回音水晶
+material.moretcon.gunpowder.name=火药
+material.moretcon.icy.name=冰
+material.moretcon.redstone.name=红石
+material.moretcon.glowstone.name=萤石
 
 material.uniquetoolpart.name=独特
 
@@ -388,6 +403,19 @@ modifier.moretcon.eulers_wrath.name=欧拉之怒
 modifier.moretcon.eulers_wrath.desc=§o因为你将它四舍五入到 3，他很不高兴……§r\n你的工具的效率约为 2.718 倍，约为 2.718 分之一。
 modifier.moretcon.dematerializing.name=去物质化
 modifier.moretcon.dematerializing.desc=§o你的分子间内聚力权限已被取消 :3§r\n你的工具会将箭矢雾化为光束，完全蓄力后它将湮灭路径上的任何东西。
+modifier.moretcon.plasma_missiles.name=等离子导弹
+modifier.moretcon.plasma_missiles.desc=§o去吧，我的导弹!!!!§r/n你的工具会在命中时可能发射追踪导弹，此特质有20%的几率被触发。
+modifier.moretcon.macrocrystaline.name=巨晶体
+modifier.moretcon.macrocrystaline.desc=§o如此完美...§r\n你的工具喜爱完美的2的幂数，又或者其耐久可被二整除
+modifier.moretcon.slimesharp.name=锋利史莱姆
+modifier.moretcon.slimesharp.desc=§o黏糊糊...但又相当锋利...§r\n你的工具喜爱粘液，根据粘液覆层获得额外的伤害与挖掘速度加成
+modifier.moretcon.polyshot.name=聚影
+modifier.moretcon.polyshot.desc=§o就像电影一样...§r\n你的工具会像在发射时霰弹枪一样同时射出数枚削弱过的投掷物
+modifier.moretcon.impact_detonated.name=爆破冲击
+modifier.moretcon.impact_detonated.desc=§o要不要来杯好喝的自由茶？§r\n你的炸弹将在命中敌人时立刻爆炸，但造成的伤害减少25%
+modifier.moretcon.cryogenics.name=低温技术
+modifier.moretcon.cryogenics.desc=§o冰棍！§r\n你的工具会冻结被命中的敌人，并对敌人施加迟缓、挖掘疲劳与抗性，且对未结冰的敌人造成的伤害提高。
+
 modifier.moretcon.reforgeheavy.name=沉重
 modifier.moretcon.reforgeheavy.flavor=§o你都不抬吗？？
 modifier.moretcon.reforgeheavy.desc=你的工具在伤害和采掘速度的效率将提高 15%，但移动速度和挥舞速度会降低 15%。
@@ -397,12 +425,14 @@ modifier.moretcon.reforgesharpened.desc=当耐久度超过 95% 时，你的工�
 modifier.moretcon.reforgeconsistant.name=一致性
 modifier.moretcon.reforgeconsistant.flavor=§o始终如一是关键
 modifier.moretcon.reforgeconsistant.desc=在重复开采同一类型的矿块或攻击同一类型的生物时，你的工具会获得叠加奖励，最高可获得 50% 的额外伤害和 2.5 的额外采掘速度加成。
-modifier.moretcon.plasma_missiles.name=等离子导弹
-modifier.moretcon.plasma_missiles.desc=§o去吧，我的导弹!!!!§r/n你的工具会在命中时可能发射追踪导弹，此特质有20%的几率被触发。
 
 moretcon.bloodgodsblessing=血神的祝福
 moretcon.hyperflames=超焰
 moretcon.bleeding=流血
+
+stat.moretcon.explosive_charge.name=爆炸装药
+stat.explosive.radius.name=半径
+stat.explosive.fuse_time.name=熔断时间
 
 text.uniquely_crafted.crafting_table=可在工作台合成
 text.uniquely_crafted.shockwave=在活化器里用粉碎冲击波剑合成
@@ -452,6 +482,8 @@ tile.moretcon.blockancientalloy.name=远古合金块
 tile.moretcon.blockblightsteel.name=枯萎钢块
 tile.moretcon.blocksanguiseelium.name=汲血魂金块
 tile.moretcon.blockzracohlium.name=临界辐金块
+tile.moretcon.blockslimesteel.name=史莱姆钢块
+tile.moretcon.blockmonolite.name=回音水晶块
 
 tile.moretcon.blockcobbledbedrock.name=基岩圆石
 tile.moretcon.blockcobbledbetweenbedrock.name=交错基岩圆石
@@ -487,6 +519,7 @@ tile.moretcon.liquidsanguiseelium.name=熔融汲血魂金
 tile.moretcon.mummysludge.name=木乃伊淤泥
 tile.moretcon.liquifiedsouls.name=液态灵魂
 tile.moretcon.liquidzracohlium.name=熔融临界辐金
+tile.moretcon.liquidslimesteel.name=熔融史莱姆钢
 
 tile.moretcon.orearkenium.name=阿肯钢矿石
 tile.moretcon.orebloodstone.name=血石矿石
@@ -508,6 +541,7 @@ tile.moretcon.oreerythynite.name=永恒石矿石
 tile.moretcon.oreelectarite.name=雷电石矿石
 tile.moretcon.orehallowsite.name=神圣石矿石
 tile.moretcon.orezracohlium.name=临界辐金矿石
+tile.moretcon.oremonolite.name=回音水晶矿
 
 tile.moretcon.blockotherstone.name=其他石头
 tile.moretcon.rottensludge.name=烂泥
@@ -532,6 +566,8 @@ uniquetoolpart.moretcon.autoloader.name=全自动
 uniquetoolpart.moretcon.vengeance.name=复仇
 uniquetoolpart.moretcon.skybolt.name=天弩
 uniquetoolpart.moretcon.dematerializer.name=去物质化
+uniquetoolpart.moretcon.shotgun.name=霰弹枪
+uniquetoolpart.moretcon.impact.name=冲击
 
 booltracker.active.name=激活
 booltracker.inactive.name=未激活

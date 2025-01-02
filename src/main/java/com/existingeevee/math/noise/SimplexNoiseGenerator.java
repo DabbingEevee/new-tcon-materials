@@ -1,5 +1,7 @@
 package com.existingeevee.math.noise;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class SimplexNoiseGenerator {
@@ -15,7 +17,7 @@ public class SimplexNoiseGenerator {
 		this.scale = scale; // Overall scaling of the terrain
 	}
 
-	//WHAT THE FUCK DOWS THIS MEEEAANNNNN>>>>??>>>?>>?>
+	// WHAT THE FUCK DOWS THIS MEEEAANNNNN>>>>??>>>?>>?>
 	public double generateOctavedSimplexNoise(int x, int y, long seed) {
 		double totalNoise = 0;
 		double layerFrequency = scale;
@@ -23,7 +25,7 @@ public class SimplexNoiseGenerator {
 
 		for (int octave = 0; octave < octaves; octave++) {
 			// Calculate single layer/octave of simplex noise, then add it to total noise
-			totalNoise += SimplexNoise.noise(x * layerFrequency, y * layerFrequency, seed) * layerWeight;
+			totalNoise += SimplexNoise.getSeededInstance(seed).noise(x * layerFrequency, y * layerFrequency) * layerWeight;
 			// Increase variables with each incrementing octave
 			layerFrequency *= 2;
 			layerWeight *= roughness;
@@ -32,13 +34,34 @@ public class SimplexNoiseGenerator {
 		return totalNoise;
 	}
 
-	public static class SimplexNoise { // Simplex noise in 2D, 3D and 4D
-		private static Grad grad3[] = { new Grad(1, 1, 0), new Grad(-1, 1, 0), new Grad(1, -1, 0), new Grad(-1, -1, 0),
+	public static class SimplexNoise { // Simplex noise in 2D, 3D. 
+		//EV I removed 4D because it is not needed
+		
+		public static final SimplexNoise DEFAULT = new SimplexNoise();
+		
+		protected static final Map<Long,SimplexNoise> SEEDED = new HashMap<>();
+		
+		public static SimplexNoise getSeededInstance(long seed) {
+			return SEEDED.computeIfAbsent(seed, SimplexNoise::new);
+		}
+		
+		protected SimplexNoise(long seed) {
+			//we fully randomize p
+			Random rand = new Random(seed);
+			for (int i = 0; i < p.length; i++) {
+				p[i] = (short) rand.nextInt(255);
+			}
+			
+			calculatePerms();
+		}
+		
+		private static final Grad grad3[] = {
+				new Grad(1, 1, 0), new Grad(-1, 1, 0), new Grad(1, -1, 0), new Grad(-1, -1, 0),
 				new Grad(1, 0, 1), new Grad(-1, 0, 1), new Grad(1, 0, -1), new Grad(-1, 0, -1),
-				new Grad(0, 1, 1), new Grad(0, -1, 1), new Grad(0, 1, -1), new Grad(0, -1, -1) };
+				new Grad(0, 1, 1), new Grad(0, -1, 1), new Grad(0, 1, -1), new Grad(0, -1, -1)
+		};
 
-
-		private static short p[] = { 151, 160, 137, 91, 90, 15,
+		private short p[] = { 151, 160, 137, 91, 90, 15,
 				131, 13, 201, 95, 96, 53, 194, 233, 7, 225, 140, 36, 103, 30, 69, 142, 8, 99, 37, 240, 21, 10, 23,
 				190, 6, 148, 247, 120, 234, 75, 0, 26, 197, 62, 94, 252, 219, 203, 117, 35, 11, 32, 57, 177, 33,
 				88, 237, 149, 56, 87, 174, 20, 125, 136, 171, 168, 68, 175, 74, 165, 71, 134, 139, 48, 27, 166,
@@ -51,16 +74,22 @@ public class SimplexNoiseGenerator {
 				251, 34, 242, 193, 238, 210, 144, 12, 191, 179, 162, 241, 81, 51, 145, 235, 249, 14, 239, 107,
 				49, 192, 214, 31, 181, 199, 106, 157, 184, 84, 204, 176, 115, 121, 50, 45, 127, 4, 150, 254,
 				138, 236, 205, 93, 222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180 };
+		
 		// To remove the need for index wrapping, double the permutation table length
-		private static short perm[] = new short[512];
-		private static short permMod12[] = new short[512];
-		static {
+		private short perm[] = new short[512];
+		private short permMod12[] = new short[512];
+		
+		protected SimplexNoise() {
+			calculatePerms();
+		}
+
+		protected final void calculatePerms() {
 			for (int i = 0; i < 512; i++) {
 				perm[i] = p[i & 255];
 				permMod12[i] = (short) (perm[i] % 12);
 			}
 		}
-
+		
 		// Skewing and unskewing factors for 2, and 3 dimensions
 		private static final double F2 = 0.5 * (Math.sqrt(3.0) - 1.0);
 		private static final double G2 = (3.0 - Math.sqrt(3.0)) / 6.0;
@@ -82,17 +111,12 @@ public class SimplexNoiseGenerator {
 		}
 
 		// 2D simplex noise
-		public static double noise(double xin, double yin, long seed) {
-			//Janky addition. please forgive me - Eevee
-			Random rand = new Random(seed);
-			xin += rand.nextDouble() * 1000000000d;
-			yin += rand.nextDouble() * 1000000000d;
-
+		public double noise(double xin, double yin) {
 			double n0, n1, n2; // Noise contributions from the three corners
 			// Skew the input space to determine which simplex cell we're in
 			double s = (xin + yin) * F2; // Hairy factor for 2D
 			long i = fastfloor(xin + s);
-			long j = fastfloor(yin + s); //ItemBow
+			long j = fastfloor(yin + s); // ItemBow
 			double t = (i + j) * G2;
 			double X0 = i - t; // Unskew the cell origin back to (x,y) space
 			double Y0 = j - t;
@@ -109,9 +133,9 @@ public class SimplexNoiseGenerator {
 				i1 = 0;
 				j1 = 1;
 			} // upper triangle, YX order: (0,0)->(0,1)->(1,1)
-			// A step of (1,0) in (i,j) means a step of (1-c,-c) in (x,y), and
-			// a step of (0,1) in (i,j) means a step of (-c,1-c) in (x,y), where
-			// c = (3-sqrt(3))/6
+				// A step of (1,0) in (i,j) means a step of (1-c,-c) in (x,y), and
+				// a step of (0,1) in (i,j) means a step of (-c,1-c) in (x,y), where
+				// c = (3-sqrt(3))/6
 			double x1 = x0 - i1 + G2; // Offsets for middle corner in (x,y) unskewed coords
 			double y1 = y0 - j1 + G2;
 			double x2 = x0 - 1.0 + 2.0 * G2; // Offsets for last corner in (x,y) unskewed coords
@@ -150,13 +174,7 @@ public class SimplexNoiseGenerator {
 		}
 
 		// 3D simplex noise
-		public static double noise(double xin, double yin, double zin, long seed) {
-			//Janky addition. please forgive me - Eevee
-			Random rand = new Random(seed);
-			xin += rand.nextDouble() * 1000000000d;
-			yin += rand.nextDouble() * 1000000000d;
-			zin += rand.nextDouble() * 1000000000d;
-
+		public double noise(double xin, double yin, double zin) {
 			double n0, n1, n2, n3; // Noise contributions from the four corners
 			// Skew the input space to determine which simplex cell we're in
 			double s = (xin + yin + zin) * F3; // Very nice and simple skew factor for 3D
@@ -280,6 +298,7 @@ public class SimplexNoiseGenerator {
 			return 32.0 * (n0 + n1 + n2 + n3);
 		}
 	}
+
 	private static class Grad {
 		double x, y, z;
 

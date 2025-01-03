@@ -16,7 +16,7 @@ public class Resilient extends AbstractTrait {
 
 	@Override
 	public int onToolDamage(ItemStack tool, int damage, int newDamage, EntityLivingBase entity) {
-		if (random.nextBoolean() && random.nextBoolean() && !entity.isPotionActive(MobEffects.MINING_FATIGUE)) {
+		if (!entity.world.isRemote && random.nextBoolean() && random.nextBoolean() && !entity.isPotionActive(MobEffects.MINING_FATIGUE)) {
 			entity.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, damage * 40, 0, false, true));
 			return (newDamage - 1 >= 0) ? newDamage - 1 : 0;
 		}

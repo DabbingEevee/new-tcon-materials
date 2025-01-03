@@ -45,13 +45,11 @@ public class EtheralToplayerGenerator extends WorldGenModifier {
 				}
 				if (d > 0.75) {
 					BlockPos pos = new BlockPos(i + chunkX * 16 + 8, 201, j + chunkZ * 16 + 8);
-					world.setBlockState(new BlockPos(i + chunkX * 16 + 8, 201, j + chunkZ * 16 + 8), ModBlocks.blockOtherstone.getDefaultState(), 2);
 					if (isAir(world, pos)) {
 						world.setBlockState(pos, ModBlocks.blockOtherstone.getDefaultState(), 2);
 					}
 
 					pos = new BlockPos(i + chunkX * 16 + 8, 199, j + chunkZ * 16 + 8);
-					world.setBlockState(new BlockPos(i + chunkX * 16 + 8, 199, j + chunkZ * 16 + 8), ModBlocks.blockOtherstone.getDefaultState(), 2);
 					if (isAir(world, pos)) {
 						world.setBlockState(pos, ModBlocks.blockOtherstone.getDefaultState(), 2);
 					}

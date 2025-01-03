@@ -31,7 +31,9 @@ public class BlockBase extends Block implements ISimpleBlockItemProvider {
 
 		super(material);
 		setUnlocalizedName(MiscUtils.createNonConflictiveName(itemName.toLowerCase()));
-		setHarvestLevel("pickaxe", harvestLevel);
+		if (harvestLevel > 0) {
+			setHarvestLevel("pickaxe", harvestLevel);
+		}
 	}
 
 	@Override
@@ -86,6 +88,11 @@ public class BlockBase extends Block implements ISimpleBlockItemProvider {
 	}
 
 	@Override
+	public Block setSoundType(SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
+	@Override
 	public ItemBlock createBlockItem() {
 		if (this.canBurn) {
 			return new ItemBlock(this);
@@ -97,5 +104,10 @@ public class BlockBase extends Block implements ISimpleBlockItemProvider {
 				return true;
 			}
 		};
+	}
+	
+	public BlockBase setHarvestLevelC(String string, int i) {
+		super.setHarvestLevel(string, i);
+		return this;
 	}
 }

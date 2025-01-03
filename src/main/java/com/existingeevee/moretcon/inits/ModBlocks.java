@@ -3,7 +3,7 @@ package com.existingeevee.moretcon.inits;
 import com.existingeevee.moretcon.block.blocktypes.BlockBase;
 import com.existingeevee.moretcon.block.blocktypes.BlockElectarite;
 import com.existingeevee.moretcon.block.blocktypes.BlockEtheralBase;
-import com.existingeevee.moretcon.block.blocktypes.BlockFalling;
+import com.existingeevee.moretcon.block.blocktypes.BlockFallingBase;
 import com.existingeevee.moretcon.block.blocktypes.HotBlockBase;
 import com.existingeevee.moretcon.block.blocktypes.RadiationBlockBase;
 import com.existingeevee.moretcon.block.blocktypes.unique.BlockGravitoniumFaucet;
@@ -23,6 +23,7 @@ import com.existingeevee.moretcon.other.utils.CompatManager;
 import com.existingeevee.moretcon.other.utils.RegisterHelper;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
 public class ModBlocks {
@@ -88,10 +89,13 @@ public class ModBlocks {
 	public static final Block blockOtherstone = (new BlockEtheralBase("blockOtherstone", Material.ROCK, 1).setHardness(30).setCreativeTab(ModTabs.moarTConMaterials));
 	public static final Block blockCobbledBedrock = (new BlockBase("blockCobbledBedrock", Material.ROCK, 4).setResistance(Float.MAX_VALUE).setHardness(40).setCreativeTab(ModTabs.moarTConMaterials));
 	public static final Block blockCobbledBetweenBedrock = (new BlockBase("blockCobbledBetweenBedrock", Material.ROCK, 4).setResistance(Float.MAX_VALUE).setHardness(40).setCreativeTab(ModTabs.moarTConMaterials));
-
+	public static final Block blockBrokenSand = (new BlockFallingBase("blockBrokenSand", Material.SAND, 0).setHarvestLevelC("shovel", 0).setSoundType(SoundType.SAND).setHardness(10).setCreativeTab(ModTabs.moarTConMaterials));
+	
+	//Block
+	
 	public static final Block blockGravitoniumFaucet = new BlockGravitoniumFaucet();
-	public static final Block blockCragravel = ((BlockBase) new BlockFalling("blockCragravel", Material.GROUND, 0).setHardness(0.6f).setResistance(0.6f)).canBeBeacon(false).setCreativeTab(ModTabs.moarTConMisc);
-	public static final Block blockSiltClay = ((BlockBase) new BlockBase("blockSiltClay", Material.CLAY, 5).setHardness(0.6f).setResistance(0.6f)).canBeBeacon(false).setCreativeTab(ModTabs.moarTConMisc);
+	public static final Block blockCragravel = ((BlockBase) new BlockFallingBase("blockCragravel", Material.GROUND, 0).setHarvestLevelC("shovel", 0).setHardness(0.6f).setResistance(0.6f)).canBeBeacon(false).setCreativeTab(ModTabs.moarTConMisc);
+	public static final Block blockSiltClay = ((BlockBase) new BlockBase("blockSiltClay", Material.CLAY, 0).setHarvestLevelC("shovel", 0).setHardness(0.6f).setResistance(0.6f)).canBeBeacon(false).setCreativeTab(ModTabs.moarTConMisc);
 
 	public static final Block blockVoidPrismTop = new BlockVoidPrismTop().setHardness(10).setResistance(20);
 	public static final Block blockVoidPrismBottom = new BlockVoidPrismBottom().setHardness(10).setResistance(20);
@@ -173,7 +177,8 @@ public class ModBlocks {
 					oreGeodesium,
 					/**-------------------------------------**/
 					blockCobbledBedrock,
-					blockOtherstone);
+					blockOtherstone,
+					blockBrokenSand);
 		}
 		if (CompatManager.twilightforest) {
 			ModBlocks.registerBlocks(

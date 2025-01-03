@@ -73,5 +73,4 @@ public class BlockFallingBase extends BlockBase {
 		Material material = state.getMaterial();
 		return block == Blocks.FIRE || material == Material.AIR || material == Material.WATER || material == Material.LAVA;
 	}
-
 }

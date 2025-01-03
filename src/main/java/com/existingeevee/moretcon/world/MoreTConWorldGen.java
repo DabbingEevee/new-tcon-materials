@@ -9,6 +9,7 @@ import com.existingeevee.moretcon.other.utils.CompatManager;
 import com.existingeevee.moretcon.world.generators.AetherOreGenerator;
 import com.existingeevee.moretcon.world.generators.AsteroidGenerator;
 import com.existingeevee.moretcon.world.generators.EtheralToplayerGenerator;
+import com.existingeevee.moretcon.world.generators.HelltopIslandsGenerator;
 import com.existingeevee.moretcon.world.generators.IgniglomerateGenerator;
 import com.existingeevee.moretcon.world.generators.MainOreGenerator;
 import com.existingeevee.moretcon.world.generators.MonoliteGenerator;
@@ -43,6 +44,10 @@ public class MoreTConWorldGen implements IWorldGenerator {
 			modifiers.add(new IgniglomerateGenerator());
 			modifiers.add(new NetherPrismGenerator());
 			modifiers.add(new MonoliteGenerator());
+			
+			if (ConfigHandler.invasiveWorldgen) {
+				modifiers.add(new HelltopIslandsGenerator());
+			}
 		}
 	}
 

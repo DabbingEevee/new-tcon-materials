@@ -544,6 +544,7 @@ tile.moretcon.orezracohlium.name=临界辐金矿石
 tile.moretcon.oremonolite.name=回音水晶矿
 
 tile.moretcon.blockotherstone.name=其他石头
+tile.moretcon.blockbrokensand.name=碎沙
 tile.moretcon.rottensludge.name=烂泥
 
 traits.bloody_arc.slash=血腥之刃斩下

@@ -544,6 +544,7 @@ tile.moretcon.orezracohlium.name=Zracohlium Ore
 tile.moretcon.oremonolite.name=Monolite Ore
 
 tile.moretcon.blockotherstone.name=Otherstone
+tile.moretcon.blockbrokensand.name=Brokensand
 tile.moretcon.rottensludge.name=Rotten Sludge
 
 traits.bloody_arc.slash=Bloody slash ka-shing

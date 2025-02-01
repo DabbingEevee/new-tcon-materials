@@ -15,6 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 
 public class BlockBedrockOreMetal extends BlockOreMetal {
 
@@ -43,7 +44,7 @@ public class BlockBedrockOreMetal extends BlockOreMetal {
 		return EnumPushReaction.BLOCK;
 	}
 
-	@SubscribeEvent
+	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onBlockStrength(PlayerEvent.BreakSpeed event) {
 		if (event.getState().getBlock().equals(this)) {
 			if (ToolHelper.isBroken(event.getEntityPlayer().getHeldItemMainhand())) {
